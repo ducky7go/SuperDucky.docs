@@ -1,0 +1,435 @@
+/* ============================================
+   Screenshot Gallery - Cyber Security Theme
+   ============================================ */
+
+.gallery {
+  padding: 6rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Gallery Header */
+.galleryHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.headerBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(123, 45, 255, 0.1);
+  border: 1px solid rgba(123, 45, 255, 0.2);
+  border-radius: 100px;
+  color: var(--ducky-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.galleryTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--ducky-text);
+  letter-spacing: -0.02em;
+}
+
+.titleGradient {
+  display: block;
+  background: linear-gradient(135deg, var(--ducky-secondary) 0%, var(--ducky-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+.gallerySubtitle {
+  font-size: 1.125rem;
+  color: var(--ducky-text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Category Section */
+.categorySection {
+  margin-bottom: 4rem;
+}
+
+.categorySection:last-child {
+  margin-bottom: 0;
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.categoryIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--ducky-secondary), var(--ducky-accent));
+  border-radius: 12px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.categoryTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ducky-text);
+  margin: 0;
+}
+
+.categoryLine {
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--ducky-border), transparent);
+}
+
+/* Screenshots Grid */
+.screenshotsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* Screenshot Card */
+.screenshotCard {
+  position: relative;
+  cursor: pointer;
+  animation: fadeInUp 0.6s ease-out both;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.screenshotCard:focus-visible {
+  outline: 2px solid var(--ducky-primary);
+  outline-offset: 4px;
+  border-radius: 16px;
+}
+
+.cardGlow {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cardInner {
+  position: relative;
+  background: rgba(17, 24, 39, 0.6);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.screenshotCard:hover .cardInner {
+  border-color: rgba(0, 255, 159, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
+}
+
+.screenshotWrapper {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--ducky-bg-secondary);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.screenshotImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.screenshotImage.loaded {
+  opacity: 1;
+}
+
+.screenshotCard:hover .screenshotImage {
+  transform: scale(1.05);
+}
+
+.skeletonLoader {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--ducky-bg-secondary) 25%, rgba(255, 255, 255, 0.05) 50%, var(--ducky-bg-secondary) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.screenshotOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 255, 159, 0.8), rgba(123, 45, 255, 0.8));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlayVisible {
+  opacity: 1;
+}
+
+.zoomIcon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: white;
+  transform: scale(0.8);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.overlayVisible .zoomIcon {
+  transform: scale(1);
+}
+
+.viewButton {
+  color: white;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Content */
+.cardContent {
+  padding: 1.5rem;
+  background: rgba(10, 14, 23, 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--ducky-text);
+}
+
+.cardDescription {
+  font-size: 0.875rem;
+  color: var(--ducky-text-muted);
+  line-height: 1.5;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: lightboxFadeIn 0.2s ease;
+}
+
+@keyframes lightboxFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lightboxBackdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+.closeButton {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.lightboxContent {
+  position: relative;
+  z-index: 5;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: lightboxSlideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes lightboxSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.imageWrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+}
+
+.imageWrapper img {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  display: block;
+}
+
+.lightboxInfo {
+  text-align: center;
+  color: white;
+}
+
+.lightboxInfo h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.lightboxInfo p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 996px) {
+  .gallery {
+    padding: 4rem 0;
+  }
+
+  .galleryTitle {
+    font-size: 2.5rem;
+  }
+
+  .screenshotsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .gallery {
+    padding: 3rem 0;
+  }
+
+  .galleryTitle {
+    font-size: 2rem;
+  }
+
+  .gallerySubtitle {
+    font-size: 1rem;
+  }
+
+  .categoryHeader {
+    flex-wrap: wrap;
+  }
+
+  .categoryLine {
+    display: none;
+  }
+
+  .screenshotsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .lightboxContent {
+    max-height: 85vh;
+  }
+
+  .imageWrapper img {
+    max-height: 55vh;
+  }
+
+  .closeButton {
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ============================================
+   UTILITY ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
