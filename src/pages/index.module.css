@@ -1,0 +1,482 @@
+/* ============================================
+   SuperDucky Landing Page - Cyber Security Theme
+   Bold animations, gradients, and visual effects
+   ============================================ */
+
+/* CSS Variables for the theme */
+:root {
+  --ducky-primary: #00ff9f;
+  --ducky-primary-dark: #00cc7f;
+  --ducky-secondary: #7b2dff;
+  --ducky-accent: #ff2d7b;
+  --ducky-bg: #0a0e17;
+  --ducky-bg-secondary: #111827;
+  --ducky-text: #f0f4f8;
+  --ducky-text-muted: #94a3b8;
+  --ducky-border: #1e293b;
+  --ducky-glow: rgba(0, 255, 159, 0.4);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.heroBanner {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--ducky-bg);
+}
+
+/* Dynamic gradient background */
+.gradientBg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 80% at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 255, 159, 0.08), transparent 50%),
+    radial-gradient(ellipse 60% 60% at 20% 20%, rgba(123, 45, 255, 0.1), transparent 50%),
+    radial-gradient(ellipse 70% 70% at 80% 80%, rgba(255, 45, 123, 0.08), transparent 50%),
+    linear-gradient(180deg, var(--ducky-bg) 0%, #0f172a 100%);
+  transition: background 0.3s ease;
+}
+
+/* Animated gradient orbs */
+.gradientOrb {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--ducky-glow) 0%, transparent 70%);
+  filter: blur(80px);
+  animation: float 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(50px, -30px) scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-30px, 50px) scale(0.9);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(-50px, -20px) scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+/* Grid overlay pattern */
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 255, 159, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 159, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Animated scanline effect */
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ducky-primary), transparent);
+  animation: scanline 8s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes scanline {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+/* Hero content */
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 255, 159, 0.1);
+  border: 1px solid rgba(0, 255, 159, 0.2);
+  border-radius: 100px;
+  color: var(--ducky-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 159, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(0, 255, 159, 0);
+  }
+}
+
+.badgeDot {
+  width: 8px;
+  height: 8px;
+  background: var(--ducky-primary);
+  border-radius: 50%;
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Hero title */
+.heroTitle {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  color: var(--ducky-text);
+}
+
+.titleLine {
+  display: block;
+  animation: slideInLeft 0.8s ease-out 0.2s both;
+}
+
+.titleHighlight {
+  display: block;
+  background: linear-gradient(135deg, var(--ducky-primary) 0%, var(--ducky-secondary) 50%, var(--ducky-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: slideInLeft 0.8s ease-out 0.4s both, gradientShift 3s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Hero subtitle */
+.heroSubtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ducky-primary);
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+/* Hero description */
+.heroDescription {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--ducky-text-muted);
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.8s ease-out 1s both;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.ctaButton:hover::before {
+  transform: translateX(100%);
+}
+
+.ctaPrimary {
+  background: linear-gradient(135deg, var(--ducky-primary) 0%, var(--ducky-primary-dark) 100%);
+  color: var(--ducky-bg);
+  box-shadow: 0 4px 20px rgba(0, 255, 159, 0.3);
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 255, 159, 0.4);
+}
+
+.buttonArrow {
+  transition: transform 0.3s ease;
+}
+
+.ctaPrimary:hover .buttonArrow {
+  transform: translateX(4px);
+}
+
+.ctaSecondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--ducky-text);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.ctaSecondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.githubIcon {
+  transition: transform 0.3s ease;
+}
+
+.ctaSecondary:hover .githubIcon,
+.ctaSecondary:hover .downloadIcon {
+  transform: scale(1.1);
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 0.8s ease-out 1.2s both;
+}
+
+.stat {
+  text-align: center;
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--ducky-primary), var(--ducky-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: var(--ducky-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statDivider {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+
+main {
+  background: var(--ducky-bg);
+  position: relative;
+}
+
+/* Floating particles decoration */
+main::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, rgba(0, 255, 159, 0.3), transparent),
+    radial-gradient(2px 2px at 60% 70%, rgba(123, 45, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 50% 50%, rgba(255, 45, 123, 0.3), transparent);
+  background-size: 200px 200px;
+  animation: particles 60s linear infinite;
+  z-index: 1;
+}
+
+@keyframes particles {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-200px);
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media screen and (max-width: 996px) {
+  .heroTitle {
+    font-size: 3.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.25rem;
+  }
+
+  .gradientOrb {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroBanner {
+    min-height: auto;
+    padding: 4rem 0;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.125rem;
+  }
+
+  .heroDescription {
+    font-size: 1rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .statDivider {
+    width: 100%;
+    height: 1px;
+  }
+
+  .gradientOrb {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* ============================================
+   UTILITY ANIMATIONS
+   ============================================ */
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 255, 159, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 255, 159, 0.6);
+  }
+}
+
+@keyframes borderDance {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
