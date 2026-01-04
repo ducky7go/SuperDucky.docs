@@ -41,17 +41,27 @@ SuperDucky 提供两种 Windows 安装包：
 1. 下载 `SuperDucky-0.2.0.dmg` (165.7 MB)
 2. 双击打开 DMG 文件
 3. 将 SuperDucky 拖入应用程序文件夹
-4. 从启动台启动 SuperDucky
+4. 打开"终端"应用，运行以下命令移除隔离属性：
+   ```bash
+   sudo xattr -dr com.apple.quarantine /Applications/SuperDucky.app
+   ```
+   该命令会移除 macOS Gatekeeper 对从互联网下载的应用自动添加的隔离属性，从而避免启动时的安全提示。
+5. 从启动台启动 SuperDucky
 
 ### Apple Silicon Mac (M1/M2/M3)
 
 1. 下载 `SuperDucky-0.2.0-arm64.dmg` (161.1 MB)
 2. 双击打开 DMG 文件
 3. 将 SuperDucky 拖入应用程序文件夹
-4. 从启动台启动 SuperDucky
+4. 打开"终端"应用，运行以下命令移除隔离属性：
+   ```bash
+   sudo xattr -dr com.apple.quarantine /Applications/SuperDucky.app
+   ```
+   该命令会移除 macOS Gatekeeper 对从互联网下载的应用自动添加的隔离属性，从而避免启动时的安全提示。
+5. 从启动台启动 SuperDucky
 
 :::提示
-首次启动时，如果系统提示"无法验证开发者"，请在系统偏好设置 > 安全性与隐私中点击"仍要打开"。
+如果未执行上述命令移除隔离属性，首次启动时系统可能会提示"无法验证开发者"。此时请在系统偏好设置 > 安全性与隐私中点击"仍要打开"。或者您也可以先关闭该提示，然后在终端执行上述 `xattr` 命令后再重新启动应用。
 :::
 
 ## Linux
