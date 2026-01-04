@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.9.2">
 <title data-rh="true">安装指南 | SuperDucky</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://ducky7go.github.io/SuperDucky.docs/en/img/screenshots/Screenshot_20260102_211938.png"><meta data-rh="true" name="twitter:image" content="https://ducky7go.github.io/SuperDucky.docs/en/img/screenshots/Screenshot_20260102_211938.png"><meta data-rh="true" property="og:url" content="https://ducky7go.github.io/SuperDucky.docs/en/docs/installation"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="安装指南 | SuperDucky"><meta data-rh="true" name="description" content="SuperDucky 支持多个操作系统，请根据您的系统选择对应的安装方式。"><meta data-rh="true" property="og:description" content="SuperDucky 支持多个操作系统，请根据您的系统选择对应的安装方式。"><link data-rh="true" rel="icon" href="/SuperDucky.docs/en/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://ducky7go.github.io/SuperDucky.docs/en/docs/installation"><link data-rh="true" rel="alternate" href="https://ducky7go.github.io/SuperDucky.docs/docs/installation" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://ducky7go.github.io/SuperDucky.docs/en/docs/installation" hreflang="en"><link data-rh="true" rel="alternate" href="https://ducky7go.github.io/SuperDucky.docs/docs/installation" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"安装指南","item":"https://ducky7go.github.io/SuperDucky.docs/en/docs/installation"}]}</script><link rel="stylesheet" href="/SuperDucky.docs/en/assets/css/styles.a72ac8d3.css">
-<script src="/SuperDucky.docs/en/assets/js/runtime~main.eebc033a.js" defer="defer"></script>
+<script src="/SuperDucky.docs/en/assets/js/runtime~main.234036db.js" defer="defer"></script>
 <script src="/SuperDucky.docs/en/assets/js/main.685b0e9a.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -42,6 +42,9 @@
 <li class="">下载 <code>SuperDucky-0.2.0.dmg</code> (165.7 MB)</li>
 <li class="">双击打开 DMG 文件</li>
 <li class="">将 SuperDucky 拖入应用程序文件夹</li>
+<li class="">打开&quot;终端&quot;应用，运行以下命令移除隔离属性：<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo xattr -dr com.apple.quarantine /Applications/SuperDucky.app</span><br></span></code></pre></div></div>
+<!-- -->该命令会移除 macOS Gatekeeper 对从互联网下载的应用自动添加的隔离属性，从而避免启动时的安全提示。</li>
 <li class="">从启动台启动 SuperDucky</li>
 </ol>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="apple-silicon-mac-m1m2m3">Apple Silicon Mac (M1/M2/M3)<a href="#apple-silicon-mac-m1m2m3" class="hash-link" aria-label="Direct link to Apple Silicon Mac (M1/M2/M3)" title="Direct link to Apple Silicon Mac (M1/M2/M3)" translate="no">​</a></h3>
@@ -49,10 +52,13 @@
 <li class="">下载 <code>SuperDucky-0.2.0-arm64.dmg</code> (161.1 MB)</li>
 <li class="">双击打开 DMG 文件</li>
 <li class="">将 SuperDucky 拖入应用程序文件夹</li>
+<li class="">打开&quot;终端&quot;应用，运行以下命令移除隔离属性：<!-- -->
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo xattr -dr com.apple.quarantine /Applications/SuperDucky.app</span><br></span></code></pre></div></div>
+<!-- -->该命令会移除 macOS Gatekeeper 对从互联网下载的应用自动添加的隔离属性，从而避免启动时的安全提示。</li>
 <li class="">从启动台启动 SuperDucky</li>
 </ol>
 <p>:::提示
-首次启动时，如果系统提示&quot;无法验证开发者&quot;，请在系统偏好设置 &gt; 安全性与隐私中点击&quot;仍要打开&quot;。
+如果未执行上述命令移除隔离属性，首次启动时系统可能会提示&quot;无法验证开发者&quot;。此时请在系统偏好设置 &gt; 安全性与隐私中点击&quot;仍要打开&quot;。或者您也可以先关闭该提示，然后在终端执行上述 <code>xattr</code> 命令后再重新启动应用。
 :::</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="linux">Linux<a href="#linux" class="hash-link" aria-label="Direct link to Linux" title="Direct link to Linux" translate="no">​</a></h2>
 <p>SuperDucky 以 AppImage 格式提供，适用于大多数 Linux 发行版。</p>
