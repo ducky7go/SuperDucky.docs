@@ -128,6 +128,15 @@ const config: Config = {
             },
           ],
         },
+        {
+          title: '更多',
+          items: [
+            {
+              label: 'Microsoft Store',
+              href: 'https://apps.microsoft.com/store/detail/9ndbtdkqbx30',
+            },
+          ],
+        },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} newbe36524. Built with Docusaurus.`,
     },

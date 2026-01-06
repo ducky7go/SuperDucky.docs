@@ -91,6 +91,11 @@ function HomepageHeader() {
               </svg>
               <span>立即下载</span>
             </Link>
+            <Link
+              className={clsx(styles.ctaButton, styles.ctaStore)}
+              to="https://apps.microsoft.com/store/detail/9ndbtdkqbx30">
+              <img src={require('@site/static/img/store-badge.svg').default} alt="Microsoft Store" className={styles.storeBadge} />
+            </Link>
           </div>
           <div className={styles.stats}>
             <div className={styles.stat}>
