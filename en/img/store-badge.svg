@@ -1,0 +1,18 @@
+<svg width="160" height="40" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with dark theme support -->
+  <rect width="160" height="40" rx="4" fill="#0078D4" fill-opacity="0.1" stroke="#0078D4" stroke-width="1"/>
+
+  <!-- Microsoft Store Icon -->
+  <g transform="translate(12, 10)">
+    <rect width="20" height="20" rx="2" fill="#0078D4"/>
+    <rect x="2" y="2" width="7" height="7" fill="#F25022"/>
+    <rect x="11" y="2" width="7" height="7" fill="#7FBA00"/>
+    <rect x="2" y="11" width="7" height="7" fill="#00A4EF"/>
+    <rect x="11" y="11" width="7" height="7" fill="#FFB900"/>
+  </g>
+
+  <!-- Text -->
+  <text x="42" y="25" font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">
+    Microsoft Store
+  </text>
+</svg>
