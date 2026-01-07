@@ -13,6 +13,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'feature-guides/enable-nuget',
         'feature-guides/enable-save-gallery',
+        'feature-guides/mod-management',
       ],
     },
   ],
