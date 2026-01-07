@@ -24,13 +24,16 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "00 23 * * 0"
+permissions:
+  contents: write
+  pull-requests: write
 jobs:
   build:
     name: calibreapp/image-actions
     runs-on: ubuntu-latest
     # Only run on main repo on and PRs that match the main repo.
     if: |
-      github.repository == 'newbe-pro/Newbe.Pro' &&
+      github.repository == 'ducky7go/SuperDucky.docs' &&
       (github.event_name != 'pull_request' ||
        github.event.pull_request.head.repo.full_name == github.repository)
     steps:
@@ -50,7 +53,7 @@ jobs:
           steps.calibre.outputs.markdown != ''
         uses: peter-evans/create-pull-request@v8
         with:
-          token: ${{ secrets.NEWBE_GITHUB_PAT }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           title: Auto Compress Images
           branch-suffix: timestamp
           commit-message: Compress Images
