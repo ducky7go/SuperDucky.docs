@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-feature-guides/mod-management" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">模组管理功能介绍 | SuperDucky</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://ducky7go.github.io/SuperDucky.docs/img/screenshots/Screenshot_20260102_211938.png"><meta data-rh="true" name="twitter:image" content="https://ducky7go.github.io/SuperDucky.docs/img/screenshots/Screenshot_20260102_211938.png"><meta data-rh="true" property="og:url" content="https://ducky7go.github.io/SuperDucky.docs/docs/feature-guides/mod-management"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="模组管理功能介绍 | SuperDucky"><meta data-rh="true" name="description" content="模组管理是 SuperDucky 的核心功能，本文档将详细介绍如何使用模组管理功能。"><meta data-rh="true" property="og:description" content="模组管理是 SuperDucky 的核心功能，本文档将详细介绍如何使用模组管理功能。"><link data-rh="true" rel="icon" href="/SuperDucky.docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://ducky7go.github.io/SuperDucky.docs/docs/feature-guides/mod-management"><link data-rh="true" rel="alternate" href="https://ducky7go.github.io/SuperDucky.docs/docs/feature-guides/mod-management" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://ducky7go.github.io/SuperDucky.docs/en/docs/feature-guides/mod-management" hreflang="en"><link data-rh="true" rel="alternate" href="https://ducky7go.github.io/SuperDucky.docs/docs/feature-guides/mod-management" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"功能指南","item":"https://ducky7go.github.io/SuperDucky.docs/docs/category/功能指南"},{"@type":"ListItem","position":2,"name":"模组管理功能介绍","item":"https://ducky7go.github.io/SuperDucky.docs/docs/feature-guides/mod-management"}]}</script><link rel="stylesheet" href="/SuperDucky.docs/assets/css/styles.53b97696.css">
+<script src="/SuperDucky.docs/assets/js/runtime~main.6ce1edab.js" defer="defer"></script>
+<script src="/SuperDucky.docs/assets/js/main.c4bb5201.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/SuperDucky.docs/img/logo.svg"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/SuperDucky.docs/"><div class="navbar__logo"><img src="/SuperDucky.docs/img/logo.svg" alt="SuperDucky Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/SuperDucky.docs/img/logo.svg" alt="SuperDucky Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">SuperDucky</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/SuperDucky.docs/docs/installation">文档</a><a href="https://github.com/ducky7go/SuperDucky/releases" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">下载<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/ducky7go/SuperDucky" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>简体中文</a><ul class="dropdown__menu"><li><a href="/SuperDucky.docs/docs/feature-guides/mod-management" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="zh-Hans">简体中文</a></li><li><a href="/SuperDucky.docs/en/docs/feature-guides/mod-management" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="en">English</a></li></ul></div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/SuperDucky.docs/docs/installation"><span title="安装指南" class="linkLabel_WmDU">安装指南</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/SuperDucky.docs/docs/category/功能指南"><span title="功能指南" class="categoryLinkLabel_W154">功能指南</span></a><button aria-label="折叠侧边栏分类 &#x27;功能指南&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/SuperDucky.docs/docs/feature-guides/enable-nuget"><span title="启用 NuGet 功能" class="linkLabel_WmDU">启用 NuGet 功能</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/SuperDucky.docs/docs/feature-guides/enable-save-gallery"><span title="启用存档图鉴功能" class="linkLabel_WmDU">启用存档图鉴功能</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/SuperDucky.docs/docs/feature-guides/mod-management"><span title="模组管理功能介绍" class="linkLabel_WmDU">模组管理功能介绍</span></a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/SuperDucky.docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/SuperDucky.docs/docs/category/功能指南"><span>功能指南</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">模组管理功能介绍</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>模组管理功能介绍</h1></header><p>模组管理是 SuperDucky 的核心功能，本文档将详细介绍如何使用模组管理功能。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="功能简介">功能简介<a href="#功能简介" class="hash-link" aria-label="功能简介的直接链接" title="功能简介的直接链接" translate="no">​</a></h2>
+<p>SuperDucky 提供了强大的模组管理能力，让您可以轻松管理游戏模组的安装、启用和更新。支持本地模组、Steam Workshop 创意工坊和 NuGet 包等多种来源，提供可视化的分组管理、批量操作和健康检查等功能。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="模组管理界面">模组管理界面<a href="#模组管理界面" class="hash-link" aria-label="模组管理界面的直接链接" title="模组管理界面的直接链接" translate="no">​</a></h2>
+<p>SuperDucky 的模组管理界面采用左右分栏布局：</p>
+<ul>
+<li class=""><strong>左侧面板</strong>：显示模组分组列表，支持创建和管理不同的模组配置文件</li>
+<li class=""><strong>右侧面板</strong>：显示选中分组中的所有模组</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="配置文件管理">配置文件管理<a href="#配置文件管理" class="hash-link" aria-label="配置文件管理的直接链接" title="配置文件管理的直接链接" translate="no">​</a></h3>
+<p>SuperDucky 支持多个模组配置文件，方便您为不同的游戏场景创建独立的模组配置：</p>
+<ul>
+<li class=""><strong>切换配置文件</strong>：在左侧面板选择不同的配置文件</li>
+<li class=""><strong>新建配置文件</strong>：创建新的模组配置</li>
+<li class=""><strong>重命名/删除配置文件</strong>：管理现有配置文件</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="模组列表视图">模组列表视图<a href="#模组列表视图" class="hash-link" aria-label="模组列表视图的直接链接" title="模组列表视图的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="显示模式">显示模式<a href="#显示模式" class="hash-link" aria-label="显示模式的直接链接" title="显示模式的直接链接" translate="no">​</a></h3>
+<p>模组列表支持三种显示模式，可根据您的喜好切换：</p>
+<ul>
+<li class=""><strong>默认模式</strong>：显示模组预览图、名称、来源标签和启用开关</li>
+<li class=""><strong>紧凑模式</strong>：缩小卡片间距，一屏显示更多模组</li>
+<li class=""><strong>单行模式</strong>：最紧凑的显示方式，仅显示必要信息</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="模组卡片信息">模组卡片信息<a href="#模组卡片信息" class="hash-link" aria-label="模组卡片信息的直接链接" title="模组卡片信息的直接链接" translate="no">​</a></h3>
+<p>每个模组卡片显示以下信息：</p>
+<ul>
+<li class=""><strong>预览图</strong>：模组的预览图片</li>
+<li class=""><strong>模组名称</strong>：模组的显示名称</li>
+<li class=""><strong>来源标签</strong>：显示模组来源<!-- -->
+<ul>
+<li class="">本地模组</li>
+<li class="">Steam Workshop 创意工坊</li>
+<li class="">NuGet 包</li>
+</ul>
+</li>
+<li class=""><strong>启用开关</strong>：快速启用或禁用模组</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="模组筛选和搜索">模组筛选和搜索<a href="#模组筛选和搜索" class="hash-link" aria-label="模组筛选和搜索的直接链接" title="模组筛选和搜索的直接链接" translate="no">​</a></h3>
+<p>使用筛选功能快速找到目标模组：</p>
+<ul>
+<li class=""><strong>来源筛选</strong>：按模组来源筛选（本地/Steam/NuGet）</li>
+<li class=""><strong>状态筛选</strong>：按启用状态筛选（已启用/已禁用）</li>
+<li class=""><strong>搜索框</strong>：输入模组名称或 ID 进行实时搜索</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="批量操作">批量操作<a href="#批量操作" class="hash-link" aria-label="批量操作的直接链接" title="批量操作的直接链接" translate="no">​</a></h3>
+<p>筛选后可以批量操作模组：</p>
+<ul>
+<li class=""><strong>全部启用</strong>：一键启用当前筛选结果中的所有模组</li>
+<li class=""><strong>全部禁用</strong>：一键禁用当前筛选结果中的所有模组</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="模组分组">模组分组<a href="#模组分组" class="hash-link" aria-label="模组分组的直接链接" title="模组分组的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="拖拽分组">拖拽分组<a href="#拖拽分组" class="hash-link" aria-label="拖拽分组的直接链接" title="拖拽分组的直接链接" translate="no">​</a></h3>
+<p>通过拖拽方式将模组添加到不同分组：</p>
+<ol>
+<li class="">在模组卡片上按住鼠标左键</li>
+<li class="">拖动到左侧的目标分组上</li>
+<li class="">松开鼠标完成分组</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="模组排序">模组排序<a href="#模组排序" class="hash-link" aria-label="模组排序的直接链接" title="模组排序的直接链接" translate="no">​</a></h3>
+<p>在同一分组内，可以通过拖拽调整模组的加载顺序：</p>
+<ol>
+<li class="">按住模组卡片拖动</li>
+<li class="">移动到目标位置</li>
+<li class="">松开鼠标完成排序</li>
+</ol>
+<p>模组的加载顺序很重要，某些模组可能需要特定的加载顺序才能正常工作。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="右键菜单">右键菜单<a href="#右键菜单" class="hash-link" aria-label="右键菜单的直接链接" title="右键菜单的直接链接" translate="no">​</a></h3>
+<p>在模组卡片上点击右键，可以执行以下操作：</p>
+<ul>
+<li class=""><strong>启用/禁用</strong>：切换模组的启用状态</li>
+<li class=""><strong>移动到分组</strong>：将模组移动到指定分组</li>
+<li class=""><strong>移到分组开头</strong>：将模组移动到分组加载顺序的首位</li>
+<li class=""><strong>移到分组末尾</strong>：将模组移动到分组加载顺序的末尾</li>
+<li class=""><strong>打开文件夹</strong>：在文件管理器中打开模组所在的文件夹</li>
+<li class=""><strong>查看 Steam 详情</strong>：在 Steam 创意工坊中查看模组详情（仅 Steam 模组）</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="模组详情面板">模组详情面板<a href="#模组详情面板" class="hash-link" aria-label="模组详情面板的直接链接" title="模组详情面板的直接链接" translate="no">​</a></h2>
+<p>点击模组卡片可以打开模组详情面板，查看模组的完整信息。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="本地模组详情">本地模组详情<a href="#本地模组详情" class="hash-link" aria-label="本地模组详情的直接链接" title="本地模组详情的直接链接" translate="no">​</a></h3>
+<p>对于本地安装的模组，详情面板显示：</p>
+<ul>
+<li class=""><strong>预览图</strong>：模组的预览图片</li>
+<li class=""><strong>模组路径</strong>：模组在文件系统中的完整路径</li>
+<li class=""><strong>文件夹名称</strong>：模组的文件夹名称</li>
+<li class=""><strong>依赖项</strong>：该模组依赖的其他模组列表</li>
+<li class=""><strong>操作按钮</strong>：<!-- -->
+<ul>
+<li class="">打开文件夹：在文件管理器中打开模组目录</li>
+<li class="">查看 Steam 详情：跳转到 Steam 创意工坊（如果是 Steam 模组）</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="steam-workshop-模组详情">Steam Workshop 模组详情<a href="#steam-workshop-模组详情" class="hash-link" aria-label="Steam Workshop 模组详情的直接链接" title="Steam Workshop 模组详情的直接链接" translate="no">​</a></h3>
+<p>对于 Steam Workshop 创意工坊的模组，详情面板会显示更丰富的信息：</p>
+<ul>
+<li class=""><strong>订阅数</strong>：该模组的订阅人数</li>
+<li class=""><strong>评分</strong>：模组的用户评分</li>
+<li class=""><strong>最后更新</strong>：模组的最后更新时间</li>
+<li class=""><strong>作者信息</strong>：模组作者的链接</li>
+<li class=""><strong>描述</strong>：模组的详细描述（支持 BBCode 格式）</li>
+<li class=""><strong>预览画廊</strong>：多个预览图片的画廊展示</li>
+<li class=""><strong>依赖树</strong>：可视化的模组依赖关系图</li>
+<li class=""><strong>版本历史</strong>：模组的更新历史记录</li>
+<li class=""><strong>订阅/取消订阅</strong>：管理 Steam Workshop 订阅状态</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="steam-workshop-创意工坊集成">Steam Workshop 创意工坊集成<a href="#steam-workshop-创意工坊集成" class="hash-link" aria-label="Steam Workshop 创意工坊集成的直接链接" title="Steam Workshop 创意工坊集成的直接链接" translate="no">​</a></h2>
+<p>SuperDucky 深度集成了 Steam Workshop 创意工坊，让您可以直接在应用中浏览和订阅模组。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="浏览创意工坊">浏览创意工坊<a href="#浏览创意工坊" class="hash-link" aria-label="浏览创意工坊的直接链接" title="浏览创意工坊的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">在模组列表中找到 Steam Workshop 来源的模组</li>
+<li class="">点击模组卡片查看详情</li>
+<li class="">详情面板会显示完整的创意工坊信息</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="订阅和自动下载">订阅和自动下载<a href="#订阅和自动下载" class="hash-link" aria-label="订阅和自动下载的直接链接" title="订阅和自动下载的直接链接" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>订阅模组</strong>：在 Steam 模组详情中点击&quot;订阅&quot;按钮</li>
+<li class=""><strong>自动下载</strong>：Steam 会自动下载已订阅的模组</li>
+<li class=""><strong>更新检查</strong>：SuperDucky 会定期检查创意工坊模组的更新</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="更新管理">更新管理<a href="#更新管理" class="hash-link" aria-label="更新管理的直接链接" title="更新管理的直接链接" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>更新通知</strong>：当有可用更新时，模组卡片会显示更新提示</li>
+<li class=""><strong>更新状态</strong>：在健康检查中查看模组的更新状态</li>
+<li class=""><strong>手动更新</strong>：通过 Steam 客户端更新模组</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="模组操作">模组操作<a href="#模组操作" class="hash-link" aria-label="模组操作的直接链接" title="模组操作的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="启用禁用模组">启用/禁用模组<a href="#启用禁用模组" class="hash-link" aria-label="启用/禁用模组的直接链接" title="启用/禁用模组的直接链接" translate="no">​</a></h3>
+<p>启用或禁用模组有多种方式：</p>
+<ul>
+<li class=""><strong>开关按钮</strong>：直接点击模组卡片上的启用开关</li>
+<li class=""><strong>右键菜单</strong>：在模组卡片上右键选择&quot;启用&quot;或&quot;禁用&quot;</li>
+<li class=""><strong>批量操作</strong>：使用筛选后的批量启用/禁用功能</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="移动模组到分组">移动模组到分组<a href="#移动模组到分组" class="hash-link" aria-label="移动模组到分组的直接链接" title="移动模组到分组的直接链接" translate="no">​</a></h3>
+<p>通过以下方式将模组移动到不同分组：</p>
+<ul>
+<li class=""><strong>拖拽移动</strong>：直接拖拽模组卡片到目标分组</li>
+<li class=""><strong>右键菜单</strong>：选择&quot;移动到分组&quot;并选择目标分组</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="调整模组加载顺序">调整模组加载顺序<a href="#调整模组加载顺序" class="hash-link" aria-label="调整模组加载顺序的直接链接" title="调整模组加载顺序的直接链接" translate="no">​</a></h3>
+<p>模组的加载顺序影响游戏运行，可以手动调整：</p>
+<ul>
+<li class=""><strong>拖拽排序</strong>：在同一分组内拖拽模组调整顺序</li>
+<li class=""><strong>移到开头/末尾</strong>：在右键菜单中选择&quot;移到分组开头&quot;或&quot;移到分组末尾&quot;</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="打开模组文件夹">打开模组文件夹<a href="#打开模组文件夹" class="hash-link" aria-label="打开模组文件夹的直接链接" title="打开模组文件夹的直接链接" translate="no">​</a></h3>
+<p>需要查看或修改模组文件时：</p>
+<ul>
+<li class=""><strong>右键菜单</strong>：选择&quot;打开文件夹&quot;</li>
+<li class=""><strong>详情面板</strong>：在模组详情中点击&quot;打开文件夹&quot;按钮</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="健康检查">健康检查<a href="#健康检查" class="hash-link" aria-label="健康检查的直接链接" title="健康检查的直接链接" translate="no">​</a></h2>
+<p>SuperDucky 会自动检查模组配置的健康状况，并在界面右上角显示健康状态条。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="健康状态指示">健康状态指示<a href="#健康状态指示" class="hash-link" aria-label="健康状态指示的直接链接" title="健康状态指示的直接链接" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>绿色</strong>：配置健康，没有发现问题</li>
+<li class=""><strong>黄色</strong>：存在警告（如缺少依赖项）</li>
+<li class=""><strong>红色</strong>：存在错误（如模组冲突）</li>
+<li class=""><strong>灰色</strong>：所有问题已被忽略</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="查看健康报告">查看健康报告<a href="#查看健康报告" class="hash-link" aria-label="查看健康报告的直接链接" title="查看健康报告的直接链接" translate="no">​</a></h3>
+<p>点击健康状态条可以打开详细的健康报告，查看：</p>
+<ul>
+<li class=""><strong>错误列表</strong>：所有需要修复的错误</li>
+<li class=""><strong>警告列表</strong>：所有需要注意的警告</li>
+<li class=""><strong>忽略的问题</strong>：已被标记为忽略的问题</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="管理健康问题">管理健康问题<a href="#管理健康问题" class="hash-link" aria-label="管理健康问题的直接链接" title="管理健康问题的直接链接" translate="no">​</a></h3>
+<p>在健康报告中可以：</p>
+<ul>
+<li class=""><strong>忽略问题</strong>：将某些问题标记为忽略</li>
+<li class=""><strong>取消忽略</strong>：恢复对已忽略问题的关注</li>
+<li class=""><strong>修复建议</strong>：查看问题的修复建议</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="常见问题">常见问题<a href="#常见问题" class="hash-link" aria-label="常见问题的直接链接" title="常见问题的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="模组无法启用">模组无法启用<a href="#模组无法启用" class="hash-link" aria-label="模组无法启用的直接链接" title="模组无法启用的直接链接" translate="no">​</a></h3>
+<p>如果模组无法启用，请检查：</p>
+<ul>
+<li class="">模组文件是否完整</li>
+<li class="">是否缺少必需的依赖模组</li>
+<li class="">模组是否存在冲突（查看健康报告）</li>
+<li class="">模组是否与当前游戏版本兼容</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="steam-模组未显示">Steam 模组未显示<a href="#steam-模组未显示" class="hash-link" aria-label="Steam 模组未显示的直接链接" title="Steam 模组未显示的直接链接" translate="no">​</a></h3>
+<p>如果 Steam Workshop 模组未显示：</p>
+<ul>
+<li class="">确认已在 Steam 中订阅该模组</li>
+<li class="">等待 Steam 完成模组下载</li>
+<li class="">检查 Steam 客户端是否正在运行</li>
+<li class="">在 SuperDucky 中刷新模组列表</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="模组加载顺序问题">模组加载顺序问题<a href="#模组加载顺序问题" class="hash-link" aria-label="模组加载顺序问题的直接链接" title="模组加载顺序问题的直接链接" translate="no">​</a></h3>
+<p>如果游戏出现异常，可能需要调整模组加载顺序：</p>
+<ul>
+<li class="">将基础模组移到加载顺序的前面</li>
+<li class="">将依赖其他模组的模组放在后面</li>
+<li class="">查看模组详情中的依赖项信息</li>
+<li class="">使用健康检查功能检测依赖问题</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="健康检查显示错误">健康检查显示错误<a href="#健康检查显示错误" class="hash-link" aria-label="健康检查显示错误的直接链接" title="健康检查显示错误的直接链接" translate="no">​</a></h3>
+<p>健康检查发现错误时：</p>
+<ul>
+<li class="">点击健康状态条查看详细报告</li>
+<li class="">根据错误类型采取相应措施</li>
+<li class="">对于可以忽略的问题，可以标记为忽略</li>
+<li class="">修复问题后健康状态会自动更新</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/feature-guides/mod-management.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/SuperDucky.docs/docs/feature-guides/enable-save-gallery"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">启用存档图鉴功能</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#功能简介" class="table-of-contents__link toc-highlight">功能简介</a></li><li><a href="#模组管理界面" class="table-of-contents__link toc-highlight">模组管理界面</a><ul><li><a href="#配置文件管理" class="table-of-contents__link toc-highlight">配置文件管理</a></li></ul></li><li><a href="#模组列表视图" class="table-of-contents__link toc-highlight">模组列表视图</a><ul><li><a href="#显示模式" class="table-of-contents__link toc-highlight">显示模式</a></li><li><a href="#模组卡片信息" class="table-of-contents__link toc-highlight">模组卡片信息</a></li><li><a href="#模组筛选和搜索" class="table-of-contents__link toc-highlight">模组筛选和搜索</a></li><li><a href="#批量操作" class="table-of-contents__link toc-highlight">批量操作</a></li></ul></li><li><a href="#模组分组" class="table-of-contents__link toc-highlight">模组分组</a><ul><li><a href="#拖拽分组" class="table-of-contents__link toc-highlight">拖拽分组</a></li><li><a href="#模组排序" class="table-of-contents__link toc-highlight">模组排序</a></li><li><a href="#右键菜单" class="table-of-contents__link toc-highlight">右键菜单</a></li></ul></li><li><a href="#模组详情面板" class="table-of-contents__link toc-highlight">模组详情面板</a><ul><li><a href="#本地模组详情" class="table-of-contents__link toc-highlight">本地模组详情</a></li><li><a href="#steam-workshop-模组详情" class="table-of-contents__link toc-highlight">Steam Workshop 模组详情</a></li></ul></li><li><a href="#steam-workshop-创意工坊集成" class="table-of-contents__link toc-highlight">Steam Workshop 创意工坊集成</a><ul><li><a href="#浏览创意工坊" class="table-of-contents__link toc-highlight">浏览创意工坊</a></li><li><a href="#订阅和自动下载" class="table-of-contents__link toc-highlight">订阅和自动下载</a></li><li><a href="#更新管理" class="table-of-contents__link toc-highlight">更新管理</a></li></ul></li><li><a href="#模组操作" class="table-of-contents__link toc-highlight">模组操作</a><ul><li><a href="#启用禁用模组" class="table-of-contents__link toc-highlight">启用/禁用模组</a></li><li><a href="#移动模组到分组" class="table-of-contents__link toc-highlight">移动模组到分组</a></li><li><a href="#调整模组加载顺序" class="table-of-contents__link toc-highlight">调整模组加载顺序</a></li><li><a href="#打开模组文件夹" class="table-of-contents__link toc-highlight">打开模组文件夹</a></li></ul></li><li><a href="#健康检查" class="table-of-contents__link toc-highlight">健康检查</a><ul><li><a href="#健康状态指示" class="table-of-contents__link toc-highlight">健康状态指示</a></li><li><a href="#查看健康报告" class="table-of-contents__link toc-highlight">查看健康报告</a></li><li><a href="#管理健康问题" class="table-of-contents__link toc-highlight">管理健康问题</a></li></ul></li><li><a href="#常见问题" class="table-of-contents__link toc-highlight">常见问题</a><ul><li><a href="#模组无法启用" class="table-of-contents__link toc-highlight">模组无法启用</a></li><li><a href="#steam-模组未显示" class="table-of-contents__link toc-highlight">Steam 模组未显示</a></li><li><a href="#模组加载顺序问题" class="table-of-contents__link toc-highlight">模组加载顺序问题</a></li><li><a href="#健康检查显示错误" class="table-of-contents__link toc-highlight">健康检查显示错误</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">文档</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/SuperDucky.docs/docs/installation">安装指南</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">社区</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/ducky7go/SuperDucky" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/ducky7go/SuperDucky/issues" target="_blank" rel="noopener noreferrer" class="footer__link-item">Issue 追踪<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">更多</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://apps.microsoft.com/store/detail/9ndbtdkqbx30" target="_blank" rel="noopener noreferrer" class="footer__link-item">Microsoft Store<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 newbe36524. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
