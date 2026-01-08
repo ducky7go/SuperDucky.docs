@@ -1,0 +1,8 @@
+{
+  "label": "Feature Guides",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Guides for enabling and using SuperDucky features"
+  }
+}
