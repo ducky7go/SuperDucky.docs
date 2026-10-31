@@ -3,7 +3,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 export const DOCS_WARMUP_CONFIG = Object.freeze({
-  domains: Object.freeze(['ducky-docs.472158246.workers.dev', 'ducky.hagicode.com']),
+  domains: Object.freeze(['superducky-docs.472158246.workers.dev', 'ducky.hagicode.com']),
   maxAttempts: 4,
   retryDelayMs: 3000,
   timeoutMs: 10000,

@@ -35,14 +35,14 @@ test('docs warmup retries transient failures and summarizes success for both dom
   const waits = [];
   const fetchImpl = createFetch(
     {
-      'https://ducky-docs.472158246.workers.dev/': async () => new Response('warming', { status: 503 }),
+      'https://superducky-docs.472158246.workers.dev/': async () => new Response('warming', { status: 503 }),
       'https://ducky.hagicode.com/': async () => new Response(null, { status: 302 }),
     },
     calls,
   );
   let docsAttemptCount = 0;
   const retryingFetch = async (url, options) => {
-    if (String(url) === 'https://ducky-docs.472158246.workers.dev/') {
+    if (String(url) === 'https://superducky-docs.472158246.workers.dev/') {
       docsAttemptCount += 1;
       if (docsAttemptCount === 1) {
         calls.push({ url: String(url), options });
@@ -67,19 +67,19 @@ test('docs warmup retries transient failures and summarizes success for both dom
 
   assert.equal(result.successCount, 2);
   assert.equal(result.failureCount, 0);
-  assert.equal(result.domainResults[0].domain, 'ducky-docs.472158246.workers.dev');
+  assert.equal(result.domainResults[0].domain, 'superducky-docs.472158246.workers.dev');
   assert.equal(result.domainResults[0].retriesUsed, 1);
   assert.equal(result.domainResults[1].domain, 'ducky.hagicode.com');
   assert.equal(result.domainResults[1].finalDetail, 'HTTP 302');
   assert.deepEqual(waits, [DOCS_WARMUP_CONFIG.retryDelayMs]);
   assert.deepEqual(calls.map((call) => call.url), [
-    'https://ducky-docs.472158246.workers.dev/',
-    'https://ducky-docs.472158246.workers.dev/',
+    'https://superducky-docs.472158246.workers.dev/',
+    'https://superducky-docs.472158246.workers.dev/',
     'https://ducky.hagicode.com/',
   ]);
 
   const summary = renderWarmupSummary(result);
-  assert.match(summary, /`ducky-docs\.472158246\.workers\.dev`/u);
+  assert.match(summary, /`superducky-docs\.472158246\.workers\.dev`/u);
   assert.match(summary, /`ducky\.hagicode\.com`/u);
   assert.match(summary, /warmed after retry/u);
 });
@@ -91,7 +91,7 @@ test('docs warmup reports exhausted retries and keeps later-domain diagnostics',
   try {
     await runWarmup({
       fetchImpl: createFetch({
-        'https://ducky-docs.472158246.workers.dev/': async () => new Response('gateway issue', { status: 502 }),
+        'https://superducky-docs.472158246.workers.dev/': async () => new Response('gateway issue', { status: 502 }),
         'https://ducky.hagicode.com/': async () => new Response('ok', { status: 200 }),
       }),
       wait: async (milliseconds) => {

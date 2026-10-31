@@ -1,5 +1,5 @@
 {
-  "name": "ducky-docs",
+  "name": "superducky-docs",
   "compatibility_date": "2026-05-04",
   // Direct wrangler deploy should publish the validated gh-pages dist/ snapshot as static web assets.
   "assets": {

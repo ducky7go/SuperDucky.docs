@@ -39,8 +39,8 @@
 
 #### Scenario: 预热的域名
 - **WHEN** 运行预热
-- **THEN** 依次请求 `ducky-docs.472158246.workers.dev` 与 `ducky.hagicode.com`
-- **AND** 前者是同一账号下名为 `ducky-docs` 的 worker(名称取自 `.github/gh-pages/wrangler.jsonc`)的 workers.dev 地址
+- **THEN** 依次请求 `superducky-docs.472158246.workers.dev` 与 `ducky.hagicode.com`
+- **AND** 前者是同一账号下名为 `superducky-docs` 的 worker(名称取自 `.github/gh-pages/wrangler.jsonc`)的 workers.dev 地址
 
 #### Scenario: 重试与判定
 - **WHEN** 请求失败或返回 4xx、5xx
