@@ -1,22 +1,33 @@
 # landing-page Specification
 
 ## Purpose
-站点首页与截图页。首页使用 Starlight 的 `splash` 模板,不使用自定义 React 页面。
+站点首页与截图页。首页使用 Starlight 的 `splash` 模板,内容由 `src/components/HomeLanding.astro` 渲染(文案在 `src/data/home.ts`,中英文共用),不使用自定义 React 页面。
 
 ## Requirements
 
 ### Requirement: 首页品牌与行动入口
 
-首页 SHALL 在 hero 区显示"超级鸭鸭 SuperDucky"(英文为 "SuperDucky")、一句话简介和欢迎页截图(AVIF,通过 hero 的 `html` 字段引用 `public/` 中的文件),并提供"开始使用"(跳转安装指南)与"下载"(跳转 GitHub Releases)两个入口。
+首页 SHALL 在首屏显示"超级鸭鸭 SuperDucky"(英文为 "SuperDucky")、一句话简介和模组管理页截图(AVIF,来自 `public/screenshots/`),并提供"从 Microsoft Store 获取"(主按钮,跳转 Microsoft Store 页面)与"阅读文档"(跳转安装指南)两个入口,以及指向 GitHub Releases 的文字链接。
 
-### Requirement: 功能卡片
+### Requirement: 产品巡览
 
-首页 SHALL 显示 6 张功能卡片:Steam 创意工坊、模组套件、一键启动游戏、统一管理、NuGet 市场、存档图鉴。
+首页 SHALL 在首屏之后显示产品巡览:统一模组列表、模组套件、模组市场(Steam Workshop 与 NuGet)、存档图鉴、一键启动游戏,每一段配一张真实截图和一个文档入口。
 
-#### Scenario: 卡片只写已确认的功能
-- **WHEN** 增删功能卡片
-- **THEN** 每条描述都对应应用中已存在的功能
-- **AND** 不写未在应用中确认的能力,例如套件的导出与导入文件
+#### Scenario: 宽屏滚动驱动
+- **WHEN** 视口不小于 62rem、支持 CSS 滚动驱动动画且未开启"减弱动效"
+- **THEN** 截图舞台随滚动固定在右侧,并随章节切换
+
+#### Scenario: 回退布局
+- **WHEN** 视口较窄、浏览器不支持滚动驱动动画或开启"减弱动效"
+- **THEN** 每段文字与对应截图静态并排(窄屏上下排列),内容完全一致
+
+#### Scenario: 内容只写已确认的功能
+- **WHEN** 增删巡览段落
+- **THEN** 每条描述都对应应用中已存在的功能,不写未确认的能力,例如套件的导出与导入文件
+
+### Requirement: 首页下载与文档收尾
+
+首页 SHALL 以下载区(Microsoft Store、GitHub Releases、系统要求)和文档入口列表收尾。
 
 ### Requirement: 截图页
 

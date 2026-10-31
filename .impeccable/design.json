@@ -1,0 +1,421 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-31T23:15:30Z",
+  "title": "Design System: SuperDucky.docs",
+  "extensions": {
+    "colorMeta": {
+      "ink-night": {
+        "role": "neutral",
+        "displayName": "Night Ink",
+        "canonical": "hsl(224, 10%, 10%)",
+        "tonalRamp": [
+          "hsl(224, 5%, 15%)",
+          "hsl(224, 6%, 25%)",
+          "hsl(224, 8%, 35%)",
+          "hsl(224, 9%, 45%)",
+          "hsl(224, 9%, 60%)",
+          "hsl(224, 7%, 72%)",
+          "hsl(224, 5%, 85%)",
+          "hsl(224, 4%, 95%)"
+        ]
+      },
+      "panel-night": {
+        "role": "neutral",
+        "displayName": "Night Panel",
+        "canonical": "hsl(224, 14%, 16%)",
+        "tonalRamp": [
+          "hsl(224, 7%, 15%)",
+          "hsl(224, 9%, 25%)",
+          "hsl(224, 11%, 35%)",
+          "hsl(224, 13%, 45%)",
+          "hsl(224, 12%, 60%)",
+          "hsl(224, 10%, 72%)",
+          "hsl(224, 7%, 85%)",
+          "hsl(224, 5%, 95%)"
+        ]
+      },
+      "code-night": {
+        "role": "neutral",
+        "displayName": "Night Code",
+        "canonical": "hsl(224, 10%, 23%)",
+        "tonalRamp": [
+          "hsl(224, 5%, 15%)",
+          "hsl(224, 6%, 25%)",
+          "hsl(224, 8%, 35%)",
+          "hsl(224, 9%, 45%)",
+          "hsl(224, 9%, 60%)",
+          "hsl(224, 7%, 72%)",
+          "hsl(224, 5%, 85%)",
+          "hsl(224, 4%, 95%)"
+        ]
+      },
+      "text-mist": {
+        "role": "neutral",
+        "displayName": "Mist Text",
+        "canonical": "hsl(224, 6%, 77%)",
+        "tonalRamp": [
+          "hsl(224, 4%, 15%)",
+          "hsl(224, 4%, 25%)",
+          "hsl(224, 5%, 35%)",
+          "hsl(224, 6%, 45%)",
+          "hsl(224, 5%, 60%)",
+          "hsl(224, 4%, 72%)",
+          "hsl(224, 4%, 85%)",
+          "hsl(224, 4%, 95%)"
+        ]
+      },
+      "heading-white": {
+        "role": "neutral",
+        "displayName": "Heading White",
+        "canonical": "hsl(0, 0%, 100%)",
+        "tonalRamp": [
+          "hsl(0, 4%, 15%)",
+          "hsl(0, 4%, 25%)",
+          "hsl(0, 4%, 35%)",
+          "hsl(0, 4%, 45%)",
+          "hsl(0, 4%, 60%)",
+          "hsl(0, 4%, 72%)",
+          "hsl(0, 4%, 85%)",
+          "hsl(0, 4%, 95%)"
+        ]
+      },
+      "accent-low-night": {
+        "role": "primary",
+        "displayName": "Deep Signal Blue",
+        "canonical": "hsl(224, 54%, 20%)",
+        "tonalRamp": [
+          "hsl(224, 27%, 15%)",
+          "hsl(224, 35%, 25%)",
+          "hsl(224, 42%, 35%)",
+          "hsl(224, 50%, 45%)",
+          "hsl(224, 46%, 60%)",
+          "hsl(224, 37%, 72%)",
+          "hsl(224, 27%, 85%)",
+          "hsl(224, 19%, 95%)"
+        ]
+      },
+      "accent-electric": {
+        "role": "primary",
+        "displayName": "Electric Blue",
+        "canonical": "hsl(224, 100%, 60%)",
+        "tonalRamp": [
+          "hsl(224, 50%, 15%)",
+          "hsl(224, 64%, 25%)",
+          "hsl(224, 79%, 35%)",
+          "hsl(224, 93%, 45%)",
+          "hsl(224, 86%, 60%)",
+          "hsl(224, 69%, 72%)",
+          "hsl(224, 50%, 85%)",
+          "hsl(224, 36%, 95%)"
+        ]
+      },
+      "accent-high-night": {
+        "role": "primary",
+        "displayName": "Pale Signal Blue",
+        "canonical": "hsl(224, 100%, 85%)",
+        "tonalRamp": [
+          "hsl(224, 50%, 15%)",
+          "hsl(224, 64%, 25%)",
+          "hsl(224, 79%, 35%)",
+          "hsl(224, 93%, 45%)",
+          "hsl(224, 86%, 60%)",
+          "hsl(224, 69%, 72%)",
+          "hsl(224, 50%, 85%)",
+          "hsl(224, 36%, 95%)"
+        ]
+      },
+      "paper-day": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "hsl(0, 0%, 100%)",
+        "tonalRamp": [
+          "hsl(0, 4%, 15%)",
+          "hsl(0, 4%, 25%)",
+          "hsl(0, 4%, 35%)",
+          "hsl(0, 4%, 45%)",
+          "hsl(0, 4%, 60%)",
+          "hsl(0, 4%, 72%)",
+          "hsl(0, 4%, 85%)",
+          "hsl(0, 4%, 95%)"
+        ]
+      },
+      "panel-day": {
+        "role": "neutral",
+        "displayName": "Day Panel",
+        "canonical": "hsl(224, 19%, 97%)",
+        "tonalRamp": [
+          "hsl(224, 10%, 15%)",
+          "hsl(224, 12%, 25%)",
+          "hsl(224, 15%, 35%)",
+          "hsl(224, 18%, 45%)",
+          "hsl(224, 16%, 60%)",
+          "hsl(224, 13%, 72%)",
+          "hsl(224, 10%, 85%)",
+          "hsl(224, 7%, 95%)"
+        ]
+      },
+      "code-day": {
+        "role": "neutral",
+        "displayName": "Day Code",
+        "canonical": "hsl(224, 20%, 94%)",
+        "tonalRamp": [
+          "hsl(224, 10%, 15%)",
+          "hsl(224, 13%, 25%)",
+          "hsl(224, 16%, 35%)",
+          "hsl(224, 19%, 45%)",
+          "hsl(224, 17%, 60%)",
+          "hsl(224, 14%, 72%)",
+          "hsl(224, 10%, 85%)",
+          "hsl(224, 7%, 95%)"
+        ]
+      },
+      "text-slate": {
+        "role": "neutral",
+        "displayName": "Slate Text",
+        "canonical": "hsl(224, 10%, 23%)",
+        "tonalRamp": [
+          "hsl(224, 5%, 15%)",
+          "hsl(224, 6%, 25%)",
+          "hsl(224, 8%, 35%)",
+          "hsl(224, 9%, 45%)",
+          "hsl(224, 9%, 60%)",
+          "hsl(224, 7%, 72%)",
+          "hsl(224, 5%, 85%)",
+          "hsl(224, 4%, 95%)"
+        ]
+      },
+      "heading-ink": {
+        "role": "neutral",
+        "displayName": "Heading Ink",
+        "canonical": "hsl(224, 10%, 10%)",
+        "tonalRamp": [
+          "hsl(224, 5%, 15%)",
+          "hsl(224, 6%, 25%)",
+          "hsl(224, 8%, 35%)",
+          "hsl(224, 9%, 45%)",
+          "hsl(224, 9%, 60%)",
+          "hsl(224, 7%, 72%)",
+          "hsl(224, 5%, 85%)",
+          "hsl(224, 4%, 95%)"
+        ]
+      },
+      "accent-day": {
+        "role": "primary",
+        "displayName": "Daylight Blue",
+        "canonical": "hsl(234, 90%, 60%)",
+        "tonalRamp": [
+          "hsl(234, 45%, 15%)",
+          "hsl(234, 58%, 25%)",
+          "hsl(234, 71%, 35%)",
+          "hsl(234, 84%, 45%)",
+          "hsl(234, 77%, 60%)",
+          "hsl(234, 62%, 72%)",
+          "hsl(234, 45%, 85%)",
+          "hsl(234, 32%, 95%)"
+        ]
+      },
+      "accent-high-day": {
+        "role": "primary",
+        "displayName": "Daylight Ink Blue",
+        "canonical": "hsl(234, 80%, 30%)",
+        "tonalRamp": [
+          "hsl(234, 40%, 15%)",
+          "hsl(234, 51%, 25%)",
+          "hsl(234, 63%, 35%)",
+          "hsl(234, 74%, 45%)",
+          "hsl(234, 69%, 60%)",
+          "hsl(234, 55%, 72%)",
+          "hsl(234, 40%, 85%)",
+          "hsl(234, 29%, 95%)"
+        ]
+      },
+      "accent-low-day": {
+        "role": "primary",
+        "displayName": "Daylight Wash",
+        "canonical": "hsl(234, 88%, 90%)",
+        "tonalRamp": [
+          "hsl(234, 44%, 15%)",
+          "hsl(234, 57%, 25%)",
+          "hsl(234, 69%, 35%)",
+          "hsl(234, 82%, 45%)",
+          "hsl(234, 75%, 60%)",
+          "hsl(234, 60%, 72%)",
+          "hsl(234, 44%, 85%)",
+          "hsl(234, 31%, 95%)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home hero title only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Article h1."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "h2 section headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Steps and explanations in the 45rem column."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Buttons, captions, AI disclosure."
+      },
+      "code": {
+        "displayName": "Code",
+        "purpose": "Commands, paths, file names."
+      }
+    },
+    "shadows": [
+      {
+        "name": "ambient-sm",
+        "value": "var(--sl-shadow-sm)",
+        "purpose": "Clickable link cards at rest."
+      },
+      {
+        "name": "ambient-md",
+        "value": "var(--sl-shadow-md)",
+        "purpose": "Overlays such as the search dialog."
+      },
+      {
+        "name": "ambient-lg",
+        "value": "var(--sl-shadow-lg)",
+        "purpose": "Highest floating layers."
+      }
+    ],
+    "motion": [],
+    "breakpoints": [
+      {
+        "name": "docs-layout",
+        "value": "50rem"
+      },
+      {
+        "name": "toc",
+        "value": "72rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Hero call to action, e.g. 开始使用.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">开始使用 <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M4 11h12.2l-5.6-5.6L12 4l8 8-8 8-1.4-1.4 5.6-5.6H4z\"/></svg></a>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:.5em;border:1px solid hsl(224,100%,85%);border-radius:999rem;background:hsl(224,100%,85%);color:hsl(224,10%,10%);font:1rem/1.1875 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans',Arial,sans-serif;padding:.9375rem 1.25rem;text-decoration:none;outline-offset:.25rem}.ds-btn-primary:hover{color:hsl(224,10%,10%);filter:brightness(1.05)}.ds-btn-primary:focus-visible{outline:2px solid hsl(224,100%,60%)}"
+    },
+    {
+      "name": "Minimal Button",
+      "kind": "button",
+      "refersTo": "button-minimal",
+      "description": "Quiet secondary action with an external-link icon, e.g. 下载.",
+      "html": "<a class=\"ds-btn-minimal\" href=\"#\">下载 <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M14 3h7v7h-2V6.4l-8.3 8.3-1.4-1.4L17.6 5H14zM5 5h6v2H7v10h10v-4h2v6H5z\"/></svg></a>",
+      "css": ".ds-btn-minimal{display:inline-flex;align-items:center;gap:.5em;color:#fff;font:1rem/1.1875 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans',Arial,sans-serif;padding:.9375rem 0;text-decoration:none;outline-offset:.25rem}.ds-btn-minimal:hover{text-decoration:underline}.ds-btn-minimal:focus-visible{outline:2px solid hsl(224,100%,60%)}"
+    },
+    {
+      "name": "Link Card",
+      "kind": "card",
+      "refersTo": "link-card",
+      "description": "Clickable card that leads to a guide; the only place a soft shadow appears at rest.",
+      "html": "<div class=\"ds-link-card\"><div><a class=\"ds-link-card-title\" href=\"#\">安装指南</a><p>下载并安装 SuperDucky,支持 Windows、macOS 和 Linux。</p></div></div>",
+      "css": ".ds-link-card{border:1px solid hsl(224,10%,23%);border-radius:.5rem;padding:1rem;background:hsl(224,10%,10%);color:hsl(224,6%,77%);box-shadow:0 1px 1px hsla(0,0%,0%,.12),0 2px 1px hsla(0,0%,0%,.24);font:1rem/1.75 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans',Arial,sans-serif}.ds-link-card-title{color:#fff;font-weight:600;line-height:1.2;text-decoration:none}.ds-link-card:hover{border-color:hsl(224,100%,85%)}.ds-link-card p{margin:.5rem 0 0}"
+    },
+    {
+      "name": "Screenshot Figure",
+      "kind": "custom",
+      "refersTo": "screenshot-frame",
+      "description": "The repo's own component: a bordered screenshot with a bold-title caption.",
+      "html": "<figure class=\"ds-shot\"><div class=\"ds-shot-img\" role=\"img\" aria-label=\"截图占位\"></div><figcaption><strong>模组管理</strong> — 左侧分组,右侧模组列表。</figcaption></figure>",
+      "css": ".ds-shot{margin:0;max-width:22rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans',Arial,sans-serif}.ds-shot-img{width:100%;aspect-ratio:1600/990;border-radius:.5rem;border:1px solid hsl(224,10%,23%);background:linear-gradient(135deg,hsl(224,14%,16%),hsl(224,10%,23%))}.ds-shot figcaption{margin-top:.5rem;font-size:.875rem;color:hsl(224,6%,77%)}.ds-shot strong{color:#fff}"
+    },
+    {
+      "name": "AI Disclosure",
+      "kind": "custom",
+      "refersTo": "ai-disclosure",
+      "description": "hagilight notice that states AI involvement truthfully.",
+      "html": "<div class=\"ds-ai\">本文内容由 AI 辅助创作。<a href=\"#\">了解更多</a></div>",
+      "css": ".ds-ai{border-inline-start:.25rem solid hsl(224,100%,60%);padding:.75rem 1rem;background:hsl(224,14%,16%);color:hsl(224,6%,77%);font:.875rem/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans',Arial,sans-serif}.ds-ai a{margin-inline-start:.5rem;color:hsl(224,100%,85%)}"
+    },
+    {
+      "name": "Content Width Toggle",
+      "kind": "custom",
+      "refersTo": "width-toggle-button",
+      "description": "hagilight toggle between standard and wide reading column.",
+      "html": "<div class=\"ds-toggle\"><button type=\"button\" aria-pressed=\"true\">标准</button><button type=\"button\" aria-pressed=\"false\">宽版</button></div>",
+      "css": ".ds-toggle{display:inline-flex;gap:.25rem;padding:.25rem;border:1px solid hsl(224,14%,16%);border-radius:.5rem;background:hsl(224,14%,16%)}.ds-toggle button{border:0;border-radius:.25rem;padding:.35rem .75rem;color:hsl(224,6%,77%);background:transparent;cursor:pointer;font:inherit}.ds-toggle button[aria-pressed=true]{color:hsl(224,54%,20%);background:hsl(224,100%,85%)}.ds-toggle button:hover{color:#fff}.ds-toggle button[aria-pressed=true]:hover{color:hsl(224,54%,20%)}.ds-toggle button:focus-visible{outline:2px solid hsl(224,100%,60%);outline-offset:2px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "玩家的随手手册",
+    "overview": "这是一份玩家边玩边翻的参考手册。读者眼睛还停在游戏上,只想找到下一步该点哪里。所以页面安静、可扫读,界面退到后面,截图和步骤站在前面。\n\n视觉系统不是自己造的,而是继承来的:Starlight 的文档骨架加上 `@hagicode/hagilight-starlight` 的默认外观,站点位于 `hagicode.com` 体系内,页眉、页脚、推广卡和主题选择器都不可改。本仓库自己的视觉只有一处,`src/styles/custom.css` 里的截图网格。因此这份文件主要是在记录继承来的令牌和使用规则,而不是新的品牌表达。\n\n整套系统用色阶分层,再叠一层很轻的环境阴影:深色是默认,背景、侧边栏、代码块各占一个灰阶,卡片只在需要\"可点\"的地方才带阴影。",
+    "keyCharacteristics": [
+      "默认深色,支持浅色;以 Starlight 的 `data-theme` 切换,另有 Ocean、Sakura、Forest 三个 hagilight 主题。",
+      "单一冷蓝强调色(色相 224,浅色为 234),系统字体,无自定义字体。",
+      "正文列 45rem,可切换到 67.5rem 宽版;行高 1.75,适合长步骤阅读。",
+      "截图是页面里最大的视觉元素,统一 0.5rem 圆角加 1px 细边框。",
+      "阴影来自 Starlight 的 `--sl-shadow-sm/md/lg`,只用在可交互的卡片和浮层上。"
+    ],
+    "rules": [
+      {
+        "name": "The Inherited Palette Rule",
+        "body": "颜色一律走 `--sl-color-*` 变量,不在 `custom.css` 里写死色值。深色和浅色由 Starlight 的 `data-theme` 切换,hagilight 的主题通过 `data-hagilight-theme` 覆盖同一批变量,硬写色值会让主题切换失效。",
+        "section": "colors"
+      },
+      {
+        "name": "The One Accent Rule",
+        "body": "强调色只做\"可点击/当前位置/焦点\"的信号。Starlight 卡片的紫、橙、绿等装饰色来自它的 `nth-child` 循环,是继承来的,不要再往页面里新增别的彩色。",
+        "section": "colors"
+      },
+      {
+        "name": "The System Stack Rule",
+        "body": "不引入网络字体,也不在 `custom.css` 里设 `font-family`。字体由 `--sl-font` 决定,覆盖它会把 hagilight 的页眉页脚一起改掉。",
+        "section": "typography"
+      },
+      {
+        "name": "The Caption Is Evidence Rule",
+        "body": "截图说明用 `--sl-text-sm` 和 `--sl-color-gray-2`,标题加粗,说明紧随其后;文字必须描述截图里真实可见的内容。",
+        "section": "typography"
+      },
+      {
+        "name": "The Reading Column Rule",
+        "body": "正文保持在 45rem 列内;只有截图网格和宽版开关可以更宽。步骤文字不要靠加宽来\"显得丰富\"。",
+        "section": "layout"
+      },
+      {
+        "name": "The Tokens Only Rule",
+        "body": "阴影只引用 `--sl-shadow-*`,不手写 `box-shadow` 数值。手写会绕过浅色模式下自动减半的阴影。",
+        "section": "elevation"
+      },
+      {
+        "name": "The Lift On Purpose Rule",
+        "body": "静止的内容块是平的,阴影只给\"可点击\"或\"浮层\"。不要给每张卡片、每张截图都加影子。",
+        "section": "elevation"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "容器用 1px 细线,不用粗框;只有提示类内容才用 0.25rem 的左侧色条。",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do 用 `--sl-color-*`、`--sl-text-*`、`--sl-shadow-*` 变量写样式,让深浅色和 hagilight 主题自动生效。",
+      "Do 让截图在页面里最大、最清楚:AVIF、写明 `width`/`height`、`loading=\"lazy\"`、0.5rem 圆角加 1px 边线。",
+      "Do 保持 45rem 阅读列;需要更宽的内容(截图网格)才用 `auto-fill` 网格。",
+      "Do 沿用应用里的词(模组套件),并让截图说明与图片实际内容一致。",
+      "Do 在 `custom.css` 里新增样式前先问:Starlight 或 hagilight 已有的组件(`Card`、`LinkCard`、`Steps`、`Tabs`、aside)能不能解决。"
+    ],
+    "donts": [
+      "Don't 关闭、替换或遮盖 hagilight 的页脚、备案信息、统计、同意弹窗、推广卡和横幅。",
+      "Don't 在 `custom.css` 里写死颜色值或 `font-family`,也不要手写 `box-shadow` 数值。",
+      "Don't 提交 PNG 或 JPEG 截图;文章图片只用 AVIF,放在 `public/screenshots/`。",
+      "Don't 给每张卡片和截图都加阴影;阴影只给可点击的卡片和浮层。",
+      "Don't 引入新的强调色或装饰性彩色;继承来的 Starlight 卡片色之外不再增加。",
+      "Don't 为了好看把正文拉宽或放进多栏。"
+    ]
+  }
+}
