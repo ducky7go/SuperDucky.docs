@@ -33,6 +33,34 @@
 - **THEN** `esa.jsonc` 与 `wrangler.jsonc` 取自 `.github/gh-pages/`,两者都把 `./dist` 声明为静态资源目录
 - **AND** 这两个文件是 HagiCode docs 的约定,供跟随该分支的静态托管使用,本仓库不执行它们
 
+### Requirement: 发布后预热域名
+
+发布到 `gh-pages` 之后,系统 SHALL 运行 `scripts/warm-deployment-domains.mjs`,依次请求站点的两个域名,让它们在对外使用前先被访问过一次。这与 HagiCode docs 一致,因为两个站点使用同一个账号。
+
+#### Scenario: 预热的域名
+- **WHEN** 运行预热
+- **THEN** 依次请求 `ducky-docs.472158246.workers.dev` 与 `ducky.hagicode.com`
+- **AND** 前者是同一账号下名为 `ducky-docs` 的 worker(名称取自 `.github/gh-pages/wrangler.jsonc`)的 workers.dev 地址
+
+#### Scenario: 重试与判定
+- **WHEN** 请求失败或返回 4xx、5xx
+- **THEN** 每个域名最多尝试 4 次,每次超时 10 秒,间隔 3 秒
+- **AND** 状态码在 200 到 399 之间视为成功(不跟随重定向)
+- **AND** 任一域名重试耗尽,脚本以非零状态退出,工作流标红
+
+#### Scenario: 预热失败不回滚
+- **WHEN** 预热失败
+- **THEN** 已发布的 `gh-pages` 快照保持不变
+- **AND** 汇总页注明"快照已发布,预热校验失败"
+
+#### Scenario: 汇总
+- **WHEN** 工作流结束(无论成败)
+- **THEN** `GITHUB_STEP_SUMMARY` 记录发布结果、发布载荷、环境、预期地址与每个域名的预热结果
+
+#### Scenario: 测试
+- **WHEN** 修改预热脚本
+- **THEN** 运行 `pnpm run test:warm-deployment-domains`
+
 ### Requirement: 不使用 GitHub Pages 配置
 
 仓库 SHALL NOT 配置 GitHub Pages,也不在 `public/` 中放置 `CNAME` 或 `.nojekyll`。`gh-pages` 只是发布快照的存放分支。
@@ -52,10 +80,10 @@
 
 ### Requirement: 与 HagiCode docs 的差异
 
-本仓库的工作流相对 HagiCode docs 只省略了依赖其仓库脚本的步骤。
+本仓库的工作流相对 HagiCode docs 只省略了依赖其仓库脚本的两处。
 
 #### Scenario: 省略的步骤
 - **WHEN** 对照 HagiCode docs 的 `docs-deploy-gh-pages.yml`
 - **THEN** 本仓库没有 `pnpm run check:registry`(镜像中立性检查)
 - **AND** 构建命令是 `pnpm run build`,而不是 `build:ci`
-- **AND** 没有发布后的域名预热步骤及其汇总
+- **AND** 其余步骤包括域名预热与汇总都与原版一致,只有域名不同

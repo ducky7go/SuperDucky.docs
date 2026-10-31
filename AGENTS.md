@@ -34,6 +34,7 @@ User documentation for the SuperDucky mod manager, built with Astro 7, Starlight
 - `src/data/screenshots.ts` caption data (zh and en) for the screenshots page; `src/data/screenshot-sizes.json` image sizes, written by `scripts/add-screenshot.mjs`
 - `src/styles/custom.css` gallery grid only
 - `.github/workflows/docs-deploy-gh-pages.yml` and `.github/gh-pages/` (`esa.jsonc`, `wrangler.jsonc`) the publication workflow and its payload files
+- `scripts/warm-deployment-domains.mjs` post-publication domain warmup (test: `tests/warm-deployment-domains.test.mjs`)
 - `scripts/add-screenshot.mjs` converts a screenshot to AVIF (`pnpm run screenshot`)
 - `astro.config.mjs` Starlight, hagilight and redirect configuration; `src/content.config.ts` collection with the hagilight frontmatter schema
 - `openspec/specs/` `deployment`, `docs`, `landing-page`, `hagilight-integration`
@@ -43,12 +44,13 @@ User documentation for the SuperDucky mod manager, built with Astro 7, Starlight
 Use pnpm (`packageManager` is pinned; `pnpm-lock.yaml` is the only lockfile). Node 22.12+ (CI uses Node 24).
 - `pnpm install`, `pnpm run dev` (dev server), `pnpm run build` (output in `dist/`), `pnpm run preview`.
 - `pnpm run screenshot -- <image> [--dir <subfolder>]` converts a screenshot to AVIF under `public/screenshots/`.
+- `pnpm run test:warm-deployment-domains` runs the warmup script's tests.
 - There is no test script. Verify a change with `pnpm run build`; article images in `dist/` must all be `.avif`.
 - `pnpm-workspace.yaml` holds pnpm settings: `allowBuilds` for `esbuild` and `sharp`, and `minimumReleaseAgeExclude` for the `@hagicode/*` scope.
 
 ## CI / deploy
 
-`.github/workflows/docs-deploy-gh-pages.yml` is copied from HagiCode docs. On push to `main` (or manually) the `build` job runs `pnpm install --frozen-lockfile`, a lockfile stability check and `pnpm run build`, then uploads a payload: `esa.jsonc` and `wrangler.jsonc` (from `.github/gh-pages/`) plus `dist/`. The `deploy` job publishes that payload to the `gh-pages` branch with `peaceiris/actions-gh-pages@v4` (`force_orphan`, `enable_jekyll: false`), in the `docs-production` environment. Do not enable GitHub Pages and do not add `CNAME` or `.nojekyll`; `gh-pages` is only the publication snapshot. Differences from HagiCode docs: no `check:registry` step, `build` instead of `build:ci`, and no domain warmup. There is no PR check workflow.
+`.github/workflows/docs-deploy-gh-pages.yml` is copied from HagiCode docs. On push to `main` (or manually) the `build` job runs `pnpm install --frozen-lockfile`, a lockfile stability check and `pnpm run build`, then uploads a payload: `esa.jsonc` and `wrangler.jsonc` (from `.github/gh-pages/`) plus `dist/`. The `deploy` job publishes that payload to the `gh-pages` branch with `peaceiris/actions-gh-pages@v4` (`force_orphan`, `enable_jekyll: false`), in the `docs-production` environment. After publishing, `node scripts/warm-deployment-domains.mjs` requests `ducky-docs.472158246.workers.dev` (the `ducky-docs` worker named in `.github/gh-pages/wrangler.jsonc`, on the same account as HagiCode docs) and `ducky.hagicode.com`, with up to 4 attempts each. A warmup failure turns the run red but does not roll back the published snapshot. If you rename the worker in `wrangler.jsonc`, update the domain in the script and its test. Do not enable GitHub Pages and do not add `CNAME` or `.nojekyll`; `gh-pages` is only the publication snapshot. Differences from HagiCode docs: no `check:registry` step and `build` instead of `build:ci`. There is no PR check workflow.
 
 ## Conventions
 

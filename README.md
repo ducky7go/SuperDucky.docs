@@ -20,7 +20,7 @@ Edit pages in `src/content/docs/` and keep the English mirror in `src/content/do
 
 ## Deploy
 
-Pushes to `main` build the site and publish a snapshot (`dist/` plus `esa.jsonc` and `wrangler.jsonc`) to the `gh-pages` branch (`.github/workflows/docs-deploy-gh-pages.yml`, copied from HagiCode docs). GitHub Pages is not configured.
+Pushes to `main` build the site and publish a snapshot (`dist/` plus `esa.jsonc` and `wrangler.jsonc`) to the `gh-pages` branch (`.github/workflows/docs-deploy-gh-pages.yml`, copied from HagiCode docs), then warms the deployed domains. GitHub Pages is not configured.
 
 ## License
 

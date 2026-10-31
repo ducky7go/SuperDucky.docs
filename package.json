@@ -10,7 +10,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "screenshot": "node scripts/add-screenshot.mjs"
+    "screenshot": "node scripts/add-screenshot.mjs",
+    "test:warm-deployment-domains": "node --test ./tests/warm-deployment-domains.test.mjs"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.42.4",

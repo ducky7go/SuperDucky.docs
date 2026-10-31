@@ -66,4 +66,5 @@ SuperDucky provides:
 - **Workflow**: `.github/workflows/docs-deploy-gh-pages.yml` (copied from HagiCode docs), on push to `main` or manually
 - **Build**: `pnpm run build`, output `dist/`
 - **Published payload**: `esa.jsonc`, `wrangler.jsonc` and `dist/` at the root of the `gh-pages` branch (orphan snapshot, `peaceiris/actions-gh-pages@v4`)
+- **After publishing**: `scripts/warm-deployment-domains.mjs` warms `ducky-docs.472158246.workers.dev` and `ducky.hagicode.com`
 - **GitHub Pages**: not configured
