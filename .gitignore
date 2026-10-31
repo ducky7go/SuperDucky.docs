@@ -12,3 +12,6 @@ dist/
 !.env.example
 npm-debug.log*
 yarn-debug.log*
+
+# Local gh-pages payload dry runs
+.deploy/

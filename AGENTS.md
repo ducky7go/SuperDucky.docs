@@ -23,7 +23,7 @@ See `openspec/AGENTS.md` for the spec-driven workflow and `openspec/project.md` 
 
 ## Project overview
 
-User documentation for the SuperDucky mod manager, built with Astro 7, Starlight and `@hagicode/hagilight-starlight`. Published to GitHub Pages on the custom domain `https://ducky.hagicode.com/` (`site` in `astro.config.mjs`, `public/CNAME`; there is no `base`). The site was migrated from Docusaurus; the Chinese pages are the source language and the English pages are AI translations.
+User documentation for the SuperDucky mod manager, built with Astro 7, Starlight and `@hagicode/hagilight-starlight`. Served at `https://ducky.hagicode.com/` (`site` in `astro.config.mjs`; there is no `base`). The built site is published to the `gh-pages` branch by GitHub Actions; GitHub Pages itself is not configured. The site was migrated from Docusaurus; the Chinese pages are the source language and the English pages are AI translations.
 
 ## Repository layout
 
@@ -33,7 +33,7 @@ User documentation for the SuperDucky mod manager, built with Astro 7, Starlight
 - `src/components/ScreenshotGallery.astro` the screenshots page
 - `src/data/screenshots.ts` caption data (zh and en) for the screenshots page; `src/data/screenshot-sizes.json` image sizes, written by `scripts/add-screenshot.mjs`
 - `src/styles/custom.css` gallery grid only
-- `public/` `CNAME` (`ducky.hagicode.com`) and `.nojekyll`
+- `.github/workflows/docs-deploy-gh-pages.yml` and `.github/gh-pages/` (`esa.jsonc`, `wrangler.jsonc`) the publication workflow and its payload files
 - `scripts/add-screenshot.mjs` converts a screenshot to AVIF (`pnpm run screenshot`)
 - `astro.config.mjs` Starlight, hagilight and redirect configuration; `src/content.config.ts` collection with the hagilight frontmatter schema
 - `openspec/specs/` `deployment`, `docs`, `landing-page`, `hagilight-integration`
@@ -48,7 +48,7 @@ Use pnpm (`packageManager` is pinned; `pnpm-lock.yaml` is the only lockfile). No
 
 ## CI / deploy
 
-`.github/workflows/deploy.yml`: on push to `main`, `pnpm install --frozen-lockfile`, `pnpm run build`, publish `./dist` to the `gh-pages` branch with `peaceiris/actions-gh-pages@v3`. There is no PR check workflow.
+`.github/workflows/docs-deploy-gh-pages.yml` is copied from HagiCode docs. On push to `main` (or manually) the `build` job runs `pnpm install --frozen-lockfile`, a lockfile stability check and `pnpm run build`, then uploads a payload: `esa.jsonc` and `wrangler.jsonc` (from `.github/gh-pages/`) plus `dist/`. The `deploy` job publishes that payload to the `gh-pages` branch with `peaceiris/actions-gh-pages@v4` (`force_orphan`, `enable_jekyll: false`), in the `docs-production` environment. Do not enable GitHub Pages and do not add `CNAME` or `.nojekyll`; `gh-pages` is only the publication snapshot. Differences from HagiCode docs: no `check:registry` step, `build` instead of `build:ci`, and no domain warmup. There is no PR check workflow.
 
 ## Conventions
 
