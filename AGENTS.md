@@ -36,14 +36,14 @@ Docusaurus 3.9.2 site (React 19, TypeScript ~5.6) with the user documentation fo
 
 ## Build / test / run
 
-Use npm (`package-lock.json` exists and CI uses `npm ci`); `engines.node` is `>=20.0`, CI uses Node 24.
-- `npm start` dev server; `npm run build` static build into `build/`; `npm run serve`; `npm run typecheck` (`tsc`); `npm run clear`
-- `npm run write-translations` / `write-heading-ids` are available Docusaurus scripts.
-- `onBrokenLinks: 'throw'`, so a broken internal link fails the build. Run `npm run build` after editing docs.
+Use pnpm (`pnpm-lock.yaml` exists and CI uses `pnpm install --frozen-lockfile`); `engines.node` is `>=20.0`, CI uses Node 24.
+- `pnpm start` dev server; `pnpm run build` static build into `build/`; `pnpm run serve`; `pnpm run typecheck` (`tsc`); `pnpm run clear`
+- `pnpm run write-translations` / `write-heading-ids` are available Docusaurus scripts.
+- `onBrokenLinks: 'throw'`, so a broken internal link fails the build. Run `pnpm run build` after editing docs.
 
 ## CI / deploy
 
-`.github/workflows/deploy.yml`: on push to `main`, `npm ci`, `npm run build`, publish `./build` to the `gh-pages` branch with `peaceiris/actions-gh-pages@v3`. No PR check workflow.
+`.github/workflows/deploy.yml`: on push to `main`, `pnpm install --frozen-lockfile`, `pnpm run build`, publish `./build` to the `gh-pages` branch with `peaceiris/actions-gh-pages@v3`. No PR check workflow.
 
 ## Conventions
 
