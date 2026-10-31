@@ -1,173 +1,58 @@
+import sizes from './screenshot-sizes.json';
+
+export type ScreenshotCategory = 'onboarding' | 'home' | 'mods' | 'market' | 'logs' | 'settings';
+export type Lang = 'zh' | 'en';
+
 export interface Screenshot {
-  id: string;
-  filename: string;
-  path: string;
-  title: string;
+  /** Path under `public/screenshots/`, served as AVIF. */
+  file: string;
+  width: number;
+  height: number;
   category: ScreenshotCategory;
-  description: string;
-  order: number;
+  title: Record<Lang, string>;
+  description: Record<Lang, string>;
 }
 
-export type ScreenshotCategory =
-  | 'workshop'
-  | 'mods'
-  | 'profiles'
-  | 'settings'
-  | 'launch'
-  | 'ui';
-
-export const screenshots: Screenshot[] = [
-  {
-    id: 'ui-1',
-    filename: 'Screenshot_20260102_211525.png',
-    path: require('@site/static/img/screenshots/Screenshot_20260102_211525.png').default,
-    title: '主仪表板',
-    category: 'ui',
-    description: '精美主页，快速访问所有功能和查看最近活动。',
-    order: 1,
-  },
-  {
-    id: 'ui-2',
-    filename: 'Screenshot_20260102_211603.png',
-    path: require('@site/static/img/screenshots/Screenshot_20260102_211603.png').default,
-    title: '导航侧边栏',
-    category: 'ui',
-    description: '直观的侧边栏菜单，轻松在所有功能间导航。',
-    order: 2,
-  },
-  {
-    id: 'mods-1',
-    filename: 'Screenshot_20260102_211621.png',
-    path: require('@site/static/img/screenshots/Screenshot_20260102_211621.png').default,
-    title: 'Mod 列表视图',
-    category: 'mods',
-    description: '在整洁有序的列表视图中浏览和管理所有已安装的 Mod。',
-    order: 3,
-  },
-  {
-    id: 'mods-2',
-    filename: 'Screenshot_20260102_211628.png',
-    path: require('@site/static/img/screenshots/Screenshot_20260102_211628.png').default,
-    title: 'Mod 详情面板',
-    category: 'mods',
-    description: '查看每个 Mod 的详细信息，包括描述和版本。',
-    order: 4,
-  },
-  {
-    id: 'workshop-1',
-    filename: 'Screenshot_20260102_211642.png',
-    path: require('@site/static/img/screenshots/Screenshot_20260102_211642.png').default,
-    title: 'Steam 创意工坊浏览',
-    category: 'workshop',
-    description: '直接在应用内浏览 Steam 创意工坊，内置搜索功能。',
-    order: 5,
-  },
-  {
-    id: 'workshop-2',
-    filename: 'Screenshot_20260102_211655.png',
-    path: require('@site/static/img/screenshots/Screenshot_20260102_211655.png').default,
-    title: '创意工坊 Mod 详情',
-    category: 'workshop',
-    description: '订阅前查看创意工坊 Mod 的详细信息。',
-    order: 6,
-  },
-  {
-    id: 'profiles-1',
-    filename: 'Screenshot_20260102_211713.png',
-    path: require('@site/static/img/screenshots/Screenshot_20260102_211713.png').default,
-    title: 'Mod 配置文件概览',
-    category: 'profiles',
-    description: '创建和管理多个 Mod 配置文件，适应不同的游戏风格。',
-    order: 7,
-  },
-  {
-    id: 'profiles-2',
-    filename: 'Screenshot_20260102_211731.png',
-    path: require('@site/static/img/screenshots/Screenshot_20260102_211731.png').default,
-    title: '配置文件切换',
-    category: 'profiles',
-    description: '只需点击一下即可在不同 Mod 配置文件间快速切换。',
-    order: 8,
-  },
-  {
-    id: 'settings-1',
-    filename: 'Screenshot_20260102_211746.png',
-    path: require('@site/static/img/screenshots/Screenshot_20260102_211746.png').default,
-    title: '应用设置',
-    category: 'settings',
-    description: '配置应用偏好设置，自定义你的使用体验。',
-    order: 9,
-  },
-  {
-    id: 'settings-2',
-    filename: 'Screenshot_20260102_211803.png',
-    path: require('@site/static/img/screenshots/Screenshot_20260102_211803.png').default,
-    title: '游戏路径配置',
-    category: 'settings',
-    description: '设置游戏安装路径和 Mod 文件夹位置。',
-    order: 10,
-  },
-  {
-    id: 'launch-1',
-    filename: 'Screenshot_20260102_211818.png',
-    path: require('@site/static/img/screenshots/Screenshot_20260102_211818.png').default,
-    title: '游戏启动集成',
-    category: 'launch',
-    description: '直接启动游戏，自动应用选定的 Mod 配置。',
-    order: 11,
-  },
-  {
-    id: 'launch-2',
-    filename: 'Screenshot_20260102_211827.png',
-    path: require('@site/static/img/screenshots/Screenshot_20260102_211827.png').default,
-    title: '快速启动操作',
-    category: 'launch',
-    description: '快速启动按钮，以特定 Mod 配置启动游戏。',
-    order: 12,
-  },
-  {
-    id: 'mods-3',
-    filename: 'Screenshot_20260102_211849.png',
-    path: require('@site/static/img/screenshots/Screenshot_20260102_211849.png').default,
-    title: 'Mod 管理工具',
-    category: 'mods',
-    description: '强大的工具，用于组织和管理你的 Mod 收藏。',
-    order: 13,
-  },
-  {
-    id: 'ui-3',
-    filename: 'Screenshot_20260102_211902.png',
-    path: require('@site/static/img/screenshots/Screenshot_20260102_211902.png').default,
-    title: '主题定制',
-    category: 'ui',
-    description: '在明暗主题间选择，获得舒适的浏览体验。',
-    order: 14,
-  },
-  {
-    id: 'ui-4',
-    filename: 'Screenshot_20260102_211909.png',
-    path: require('@site/static/img/screenshots/Screenshot_20260102_211909.png').default,
-    title: '响应式设计',
-    category: 'ui',
-    description: '精美界面，在不同屏幕尺寸上都能完美运行。',
-    order: 15,
-  },
-  {
-    id: 'ui-5',
-    filename: 'Screenshot_20260102_211938.png',
-    path: require('@site/static/img/screenshots/Screenshot_20260102_211938.png').default,
-    title: '现代简洁 UI',
-    category: 'ui',
-    description: '现代用户界面设计，为最佳用户体验而打造。',
-    order: 16,
-  },
-];
-
-export const categoryTitles: Record<ScreenshotCategory, string> = {
-  workshop: 'Steam 创意工坊',
-  mods: 'Mod 管理',
-  profiles: 'Mod 配置文件',
-  settings: '设置与配置',
-  launch: '游戏启动',
-  ui: '用户界面',
+export const categoryTitles: Record<ScreenshotCategory, Record<Lang, string>> = {
+  onboarding: { zh: '初始化向导', en: 'Setup wizard' },
+  home: { zh: '首页', en: 'Home' },
+  mods: { zh: '模组管理', en: 'Mod management' },
+  market: { zh: '模组市场', en: 'Mod market' },
+  logs: { zh: '日志系统', en: 'Log viewer' },
+  settings: { zh: '设置', en: 'Settings' },
 };
+
+const shot = (
+  id: string,
+  category: ScreenshotCategory,
+  zh: [string, string],
+  en: [string, string],
+): Screenshot => {
+  const file = `Screenshot_20260102_${id}.avif`;
+  const [width, height] = (sizes as Record<string, number[]>)[file] ?? [];
+  if (!width || !height) throw new Error(`No size recorded for ${file}`);
+  return { file, width, height, category,
+  title: { zh: zh[0], en: en[0] },
+  description: { zh: zh[1], en: en[1] },
+  };
+};
+
+// Captions describe what each screenshot actually shows.
+export const screenshots: Screenshot[] = [
+  shot('211525', 'onboarding', ['路径配置', '首次启动时,在向导的第一步确认游戏相关的路径。'], ['Path setup', 'On first launch, the wizard starts by confirming the game-related paths.']),
+  shot('211603', 'onboarding', ['向导完成', '向导的最后一步,列出 SuperDucky 提供的功能和快速开始提示。'], ['Wizard finished', 'The last step lists what SuperDucky offers, with quick-start tips.']),
+  shot('211621', 'home', ['欢迎页', '快捷操作(如启动游戏)、版本信息和检查更新。'], ['Welcome page', 'Quick actions such as launching the game, plus version info and update checks.']),
+  shot('211628', 'mods', ['模组套件管理', '新建、重命名、切换和删除套件,或从 BML 导入。'], ['Mod suite management', 'Create, rename, switch and delete suites, or import from BML.']),
+  shot('211642', 'mods', ['模组列表', '左侧是分组,右侧是带来源标签的模组卡片。'], ['Mod list', 'Groups on the left, mod cards with source tags on the right.']),
+  shot('211655', 'mods', ['还原历史记录', '选择一个历史版本还原,保存后生效。'], ['Restore history', 'Pick an earlier version to restore, then save to confirm.']),
+  shot('211713', 'mods', ['分组内的模组', '查看一个分组里的模组,并直接切换启用开关。'], ['Mods in a group', 'See the mods in one group and toggle them on or off.']),
+  shot('211731', 'mods', ['右键菜单', '移动到分组、调整加载顺序、打开文件夹等操作。'], ['Context menu', 'Move to a group, change load order, open the folder and more.']),
+  shot('211746', 'market', ['模组市场', 'Steam Workshop 和 NuGet Gallery 两个来源,NuGet 默认未启用。'], ['Mod market', 'Two sources, Steam Workshop and NuGet Gallery. NuGet is off by default.']),
+  shot('211803', 'market', ['NuGet 风险确认', '启用 NuGet 市场前需要阅读并确认的风险说明。'], ['NuGet risk notice', 'The notice you must read and confirm before enabling the NuGet market.']),
+  shot('211818', 'market', ['NuGet Gallery', '启用后浏览 NuGet 上的模组。'], ['NuGet Gallery', 'Browse mods published on NuGet once it is enabled.']),
+  shot('211827', 'market', ['NuGet 模组详情', '查看可用版本,安装或加入黑名单。'], ['NuGet mod details', 'See the available versions, then install or blocklist.']),
+  shot('211849', 'market', ['创意工坊模组详情', '描述、预览画廊、依赖关系和订阅。'], ['Workshop mod details', 'Description, preview gallery, dependencies and subscribing.']),
+  shot('211902', 'mods', ['已安装模组详情', '显示模组所在路径,并可打开所在文件夹。'], ['Installed mod details', 'Shows where the mod lives and lets you open its folder.']),
+  shot('211909', 'logs', ['日志系统', '实时查看游戏运行日志。'], ['Log viewer', 'Watch the game\'s logs in real time.']),
+  shot('211938', 'settings', ['通用设置', '显示语言和隐私相关选项。'], ['General settings', 'Display language and privacy options.']),
+];

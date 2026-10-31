@@ -1,41 +1,27 @@
-# Website
+# SuperDucky.docs
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+User documentation for [SuperDucky](https://github.com/ducky7go/SuperDucky), a mod manager for Escape from Duckov. Published at <https://ducky.hagicode.com/>.
 
-## Installation
+Built with [Astro](https://astro.build/), [Starlight](https://starlight.astro.build/) and [`@hagicode/hagilight-starlight`](https://www.npmjs.com/package/@hagicode/hagilight-starlight). Chinese is the source language; English lives under `/en/`.
 
-```bash
-yarn
-```
-
-## Local Development
+## Develop
 
 ```bash
-yarn start
+pnpm install
+pnpm run dev        # dev server
+pnpm run build      # static site in dist/
+pnpm run preview    # serve dist/
+
+# add a screenshot (converted to AVIF under public/screenshots/)
+pnpm run screenshot -- ./shot.png --dir feature-folder
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+Edit pages in `src/content/docs/` and keep the English mirror in `src/content/docs/en/` in step. Every image on the site is AVIF. See [AGENTS.md](./AGENTS.md) for conventions.
 
-## Build
+## Deploy
 
-```bash
-yarn build
-```
+Pushes to `main` build the site and publish `dist/` to the `gh-pages` branch (`.github/workflows/deploy.yml`).
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+## License
 
-## Deployment
-
-Using SSH:
-
-```bash
-USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+MIT, see [LICENSE](./LICENSE).

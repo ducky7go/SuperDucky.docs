@@ -1,8 +1,10 @@
 # pnpm settings (pnpm 12 reads these here, not from package.json).
-# Build scripts that npm used to run implicitly; pnpm blocks them unless allowed.
+# Dependency lifecycle scripts run only for approved packages.
 allowBuilds:
-  core-js: false
-  core-js-pure: false
-# npm hoisted every @types/* package to the top level; the TypeScript setup relies on that.
-publicHoistPattern:
-  - '@types/*'
+  esbuild: true
+  sharp: true
+
+# pnpm 12 rejects packages younger than its default minimumReleaseAge (1 day).
+# Exempt the first-party scope, which is published and consumed the same day.
+minimumReleaseAgeExclude:
+  - "@hagicode/*"

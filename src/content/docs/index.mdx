@@ -1,0 +1,50 @@
+---
+title: 《逃离鸭科夫》Mod 管理器
+description: 《逃离鸭科夫》的 Mod 管理器:统一管理本地、Steam 创意工坊和 NuGet 模组,用模组套件一键切换,并可直接启动游戏。
+template: splash
+hero:
+  title: 超级鸭鸭 SuperDucky
+  tagline: 为《逃离鸭科夫》玩家打造的 Mod 管理器。在一个界面里管理本地、Steam 创意工坊和 NuGet 模组。
+  image:
+    alt: SuperDucky 欢迎页截图
+    html: '<img src="/screenshots/Screenshot_20260102_211621.avif" alt="SuperDucky 欢迎页截图" width="1600" height="990" decoding="async">'
+  actions:
+    - text: 开始使用
+      link: installation/
+      icon: right-arrow
+    - text: 下载
+      link: https://github.com/ducky7go/SuperDucky/releases
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## 主要功能
+
+<CardGrid>
+  <Card title="Steam 创意工坊" icon="rocket">
+    在应用内浏览、搜索并订阅创意工坊中的模组,无需来回切换窗口。
+  </Card>
+  <Card title="模组套件" icon="setting">
+    把模组按玩法保存成不同的"模组套件",一键切换。也可以从 Better Mod Loader(BML)导入已有配置。
+  </Card>
+  <Card title="一键启动游戏" icon="right-caret">
+    不用再切到别处,直接在 SuperDucky 里启动《逃离鸭科夫》。
+  </Card>
+  <Card title="统一管理" icon="puzzle">
+    本地模组、创意工坊订阅和 NuGet 模组放在同一个列表里,支持分组、拖拽排序、历史还原和健康检查。
+  </Card>
+  <Card title="NuGet 市场" icon="download">
+    启用后可以浏览并安装发布在 NuGet 上的模组,也是存档图鉴所需的 SuperDucky.Connector 的来源。
+  </Card>
+  <Card title="存档图鉴" icon="open-book">
+    读取游戏存档,按分类展示收集到的物品,并支持最多 6 个物品的属性对比。
+  </Card>
+</CardGrid>
+
+## 从这里开始
+
+<LinkCard title="安装指南" description="下载并安装 SuperDucky,支持 Windows、macOS 和 Linux。" href="installation/" />
+<LinkCard title="模组管理" description="分组、排序、筛选,以及健康检查。" href="feature-guides/mod-management/" />
+<LinkCard title="界面截图" description="看看 SuperDucky 长什么样。" href="screenshots/" />

@@ -1,165 +1,32 @@
 # landing-page Specification
 
 ## Purpose
-TBD - created by archiving change landing-page-redesign-with-screenshot-showcase. Update Purpose after archive.
+站点首页与截图页。首页使用 Starlight 的 `splash` 模板,不使用自定义 React 页面。
+
 ## Requirements
-### Requirement: Display project branding in hero section
 
-The landing page hero section SHALL display the SuperDucky project name and tagline to establish brand identity and communicate the application's purpose.
+### Requirement: 首页品牌与行动入口
 
-#### Scenario: Visitor views landing page
+首页 SHALL 在 hero 区显示"超级鸭鸭 SuperDucky"(英文为 "SuperDucky")、一句话简介和欢迎页截图(AVIF,通过 hero 的 `html` 字段引用 `public/` 中的文件),并提供"开始使用"(跳转安装指南)与"下载"(跳转 GitHub Releases)两个入口。
 
-**Given** a user navigates to the SuperDucky documentation site
-**When** the landing page loads
-**Then** the hero section displays "SuperDucky" as the main heading
-**And** the tagline "USB Device Security Manager for Windows" is shown below the heading
-**And** a call-to-action button is displayed with the text "Get Started"
+### Requirement: 功能卡片
 
----
+首页 SHALL 显示 6 张功能卡片:Steam 创意工坊、模组套件、一键启动游戏、统一管理、NuGet 市场、存档图鉴。
 
-### Requirement: Showcase key features with overview cards
+#### Scenario: 卡片只写已确认的功能
+- **WHEN** 增删功能卡片
+- **THEN** 每条描述都对应应用中已存在的功能
+- **AND** 不写未在应用中确认的能力,例如套件的导出与导入文件
 
-The landing page SHALL display feature overview cards that provide quick access to documentation for the main SuperDucky capabilities.
+### Requirement: 截图页
 
-#### Scenario: User explores feature cards
+站点 SHALL 提供"界面截图"页,按初始化向导、首页、模组管理、模组市场、日志系统和设置分组展示 16 张截图。
 
-**Given** a user is viewing the landing page
-**When** they scroll to the feature cards section
-**Then** 5 feature cards are displayed in a responsive grid layout
-**And** each card includes an icon, title, and description
-**And** the cards represent: USB Device Management, Real-time Monitoring, Security Controls, Event Logging, and Flexible Configuration
+#### Scenario: 截图说明
+- **WHEN** 查看截图页
+- **THEN** 每张截图有标题和说明,内容与截图实际画面一致
+- **AND** 中英文说明来自 `src/data/screenshots.ts` 中的同一条记录
 
-#### Scenario: User navigates from feature card
-
-**Given** a user is viewing the feature cards section
-**When** they click on a feature card
-**Then** they are navigated to the corresponding documentation section
-**And** the browser URL updates to reflect the new page
-
----
-
-### Requirement: Display screenshot gallery organized by feature
-
-The landing page SHALL include an interactive screenshot gallery showcasing all 16 application screenshots organized by feature category.
-
-#### Scenario: User views screenshot gallery
-
-**Given** a user is viewing the landing page
-**When** they scroll to the screenshot gallery section
-**Then** all 16 screenshots from `/static/img/screenshots/` are displayed
-**And** screenshots are organized into categories: detection, monitoring, security, configuration, logging, and dashboard
-**And** each screenshot is displayed with its title and description
-
-#### Scenario: User interacts with screenshot
-
-**Given** a user is viewing the screenshot gallery
-**When** they hover over a screenshot
-**Then** a visual highlight effect is applied to the screenshot
-**When** they click on a screenshot
-**Then** the screenshot expands to a larger view (lightbox/modal)
-
-#### Scenario: Screenshots load with lazy loading
-
-**Given** a user is viewing the landing page with screenshot gallery
-**When** the page initially loads
-**Then** only screenshots visible in the viewport are loaded
-**When** the user scrolls down
-**Then** additional screenshots load as they enter the viewport
-
----
-
-### Requirement: Provide quick access navigation
-
-The landing page SHALL include quick access links to key resources and documentation.
-
-#### Scenario: User accesses quick links
-
-**Given** a user is viewing the landing page
-**When** they scroll to the quick links section
-**Then** links are provided to: Documentation, Download, and GitHub repository
-**And** each link is clearly labeled and functional
-
----
-
-### Requirement: Maintain responsive design
-
-The landing page SHALL be fully responsive and display correctly on mobile, tablet, and desktop devices.
-
-#### Scenario: Mobile user views landing page
-
-**Given** a user accesses the site from a mobile device (width < 768px)
-**When** the landing page loads
-**Then** the layout adjusts to single-column format
-**And** feature cards stack vertically
-**And** screenshot gallery displays in 1-2 column grid
-**And** all text remains readable without horizontal scrolling
-
-#### Scenario: Desktop user views landing page
-
-**Given** a user accesses the site from a desktop device (width >= 1024px)
-**When** the landing page loads
-**Then** the layout uses multi-column format
-**And** feature cards display in horizontal rows
-**And** screenshot gallery displays in 3-4 column grid
-
----
-
-### Requirement: Update site configuration metadata
-
-The Docusaurus site configuration SHALL be updated with accurate SuperDucky project information.
-
-#### Scenario: Site displays correct metadata
-
-**Given** the Docusaurus configuration has been updated
-**When** the site is built and served
-**Then** the browser tab displays "SuperDucky" as the page title
-**And** the meta description reflects the actual application
-**And** the site URL is configured correctly for deployment
-
-### Requirement: Microsoft Store 徽标显示
-
-The landing page hero section SHALL display a Microsoft Store installation badge that links to the official SuperDucky application page on Microsoft Store.
-
-#### Scenario: 用户在首页看到 Microsoft Store 徽标
-
-**Given** a user navigates to the SuperDucky documentation landing page
-**When** the hero section loads
-**Then** a Microsoft Store badge SHALL be displayed in the buttons section alongside other call-to-action buttons
-**And** the badge SHALL use the official Microsoft Store badge image from `@site/static/img/store-badge.png`
-**And** the badge SHALL be properly sized and aligned with existing buttons
-
-#### Scenario: 用户点击徽标跳转到 Microsoft Store 页面
-
-**Given** a user is viewing the SuperDucky landing page
-**When** they click on the Microsoft Store badge
-**Then** the browser SHALL navigate to the Microsoft Store application page at `https://apps.microsoft.com/store/detail/9ndbtdkqbx30`
-**And** the link SHALL open in a new tab (target="_blank")
-**And** the user SHALL see the official SuperDucky app listing on Microsoft Store
-
-#### Scenario: Microsoft Store 徽标在响应式布局中正确显示
-
-**Given** a user views the landing page on different screen sizes
-**When** the page renders on mobile (width < 768px), tablet (768px - 1024px), or desktop (width >= 1024px)
-**Then** the Microsoft Store badge SHALL maintain proper proportions and readability
-**And** the badge SHALL not overflow or break the layout
-**And** the badge SHALL remain clickable on all device sizes
-
-### Requirement: 页脚 Microsoft Store 链接
-
-The website footer SHALL include a link to the Microsoft Store application page as an alternative download channel.
-
-#### Scenario: 用户在页脚看到 Microsoft Store 链接
-
-**Given** a user scrolls to the bottom of any page on the SuperDucky documentation site
-**When** the footer section is visible
-**Then** a link labeled "Microsoft Store" SHALL be displayed
-**And** the link SHALL be grouped with other site links
-**And** the link SHALL be clearly labeled and accessible
-
-#### Scenario: 用户点击页脚的 Microsoft Store 链接
-
-**Given** a user is viewing any page on the SuperDucky documentation site
-**When** they click the "Microsoft Store" link in the footer
-**Then** the browser SHALL navigate to the Microsoft Store application page at `https://apps.microsoft.com/store/detail/9ndbtdkqbx30`
-**And** the link SHALL open in a new tab (target="_blank")
-
+#### Scenario: 新增截图
+- **WHEN** 新增一张截图
+- **THEN** 先用 `pnpm run screenshot` 转成 AVIF 放入 `public/screenshots/`,再在 `src/data/screenshots.ts` 中登记分类、中文与英文说明

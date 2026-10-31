@@ -1,157 +1,65 @@
 # docs Specification
 
 ## Purpose
-TBD - created by archiving change feature-documentation-expansion. Update Purpose after archive.
+SuperDucky 用户文档的结构、语言与写作约定。
+
 ## Requirements
-### Requirement: 功能指南分类
 
-文档系统 SHALL 提供"功能指南"分类，将功能相关文档组织在可折叠的层级结构中。
+### Requirement: 双语内容
 
-#### Scenario: 用户在侧边栏看到功能指南分类
+文档 SHALL 提供简体中文和英文。中文是源语言,放在 `src/content/docs/`,地址为 `/`;英文放在 `src/content/docs/en/`,地址为 `/en/`。
 
-**Given** 用户访问 SuperDucky 文档网站的任何文档页面
-**When** 用户查看左侧导航栏
-**Then** 显示"安装指南"作为顶级项
-**And** 显示"功能指南"作为可折叠分类（位置 2）
-**And** "功能指南"分类显示子文档数量标识
+#### Scenario: 中英文一一对应
+- **WHEN** 新增或修改 `src/content/docs/<path>`
+- **THEN** 同时新增或修改 `src/content/docs/en/<path>`
+- **AND** 两边的页面结构、标题层级和图片保持一致
 
-#### Scenario: 用户展开功能指南分类
+#### Scenario: 语言键为小写
+- **WHEN** 在 `astro.config.mjs` 中声明语言
+- **THEN** 英文的键为 `en`,`lang` 为 `en-US`
+- **AND** 不使用 `en-US` 作为键,因为 Starlight 会把内容目录名转为小写,与键不再匹配
 
-**Given** 用户在侧边栏看到"功能指南"分类
-**When** 用户点击"功能指南"分类
-**Then** 分类展开显示子文档列表
-**And** 子文档包括："启用 NuGet 功能"和"启用存档图鉴功能"
+#### Scenario: 英文页显示 AI 翻译声明
+- **WHEN** 访问任意英文页
+- **THEN** 页面显示"本文由 AI 翻译"声明,并链接到中文原文
 
-#### Scenario: 用户点击功能指南分类索引页
+### Requirement: 页面与导航
 
-**Given** 用户在侧边栏点击"功能指南"分类
-**When** 页面导航到分类索引页
-**Then** 显示自动生成的功能概览页面
-**And** 页面包含所有子功能的简介和链接
+侧边栏 SHALL 依次包含"安装指南"、"功能指南"(自动收录 `feature-guides/` 下的页面)和"界面截图"。
 
----
+功能指南 SHALL 包含:模组管理、启用 NuGet 市场、启用存档图鉴。
 
-### Requirement: NuGet 功能文档
+#### Scenario: 页面元数据
+- **WHEN** 新增文档页
+- **THEN** frontmatter 包含 `title`、`description`
+- **AND** 使用 `sidebar.order` 决定同组内顺序
+- **AND** `description` 中不使用后接空格的英文冒号,否则 YAML 解析失败
 
-文档系统 SHALL 包含 NuGet 功能启用指南，帮助用户了解如何在 SuperDucky 中启用和使用 NuGet 包管理功能。
+### Requirement: 图片
 
-#### Scenario: 用户查找 NuGet 功能文档
+文档中的所有图片 SHALL 是 AVIF 格式,放在 `public/screenshots/`,在 Markdown 中用站点根路径引用,例如 `/screenshots/enable_nuget/001_enable_nuget.avif`。
 
-**Given** 用户访问 SuperDucky 文档网站
-**When** 用户展开"功能指南"分类并点击"启用 NuGet 功能"
-**Then** 显示 `docs/feature-guides/enable-nuget.md` 文档页面
-**And** 文档包含启用步骤的详细说明
-**And** 文档包含必要的截图（`001_enable_nuget..png` 和 `002_confirm.png`）
-**And** 面包屑导航显示：安装指南 > 功能指南 > 启用 NuGet 功能
+#### Scenario: 为什么放在 public/
+- **WHEN** 图片放在 `src/` 并用相对路径引用
+- **THEN** hagilight 会把它包成 `<picture>`,并固定生成 WebP 变体,这个行为无法配置
+- **AND** 放在 `public/` 的图片不会被改写,产物里只有一个 AVIF 文件
 
-#### Scenario: NuGet 文档图片正确显示
+#### Scenario: 新增图片
+- **WHEN** 新增截图
+- **THEN** 运行 `pnpm run screenshot -- <图片> [--dir <子目录>]`,它转换为最长边 1600 像素以内的 AVIF,写入 `public/screenshots/` 并登记尺寸到 `src/data/screenshot-sizes.json`
+- **AND** 不提交 PNG 或 JPEG 原图
 
-**Given** 用户正在查看 NuGet 功能文档
-**When** 页面加载完成
-**Then** 所有截图从 `/img/screenshots/enable_nuget/` 路径正确加载
-**And** 图片在文档中按顺序显示
-**And** 无断链错误
+### Requirement: 内容准确性
 
----
+文档 SHALL 只描述在应用中确认存在的行为。
 
-### Requirement: 存档图鉴功能文档
+#### Scenario: 关键事实
+- **WHEN** 编写 NuGet 与存档图鉴相关内容
+- **THEN** NuGet 市场被描述为模组市场的一个第三方来源,启用时需确认风险
+- **AND** 存档图鉴被描述为依赖游戏内的 `SuperDucky.Connector` 模组,该模组通过 NuGet 市场安装
+- **AND** 物品对比上限为 6 个,图鉴搜索按物品名称和描述匹配
+- **AND** 配置文件在应用中叫"模组套件"
 
-文档系统 SHALL 包含存档图鉴功能启用指南，帮助用户了解如何启用和使用游戏存档的图鉴收集功能。
+### Requirement: 提示块语法
 
-#### Scenario: 用户查找存档图鉴功能文档
-
-**Given** 用户访问 SuperDucky 文档网站
-**When** 用户展开"功能指南"分类并点击"启用存档图鉴功能"
-**Then** 显示 `docs/feature-guides/enable-save-gallery.md` 文档页面
-**And** 文档包含启用步骤的详细说明
-**And** 文档包含功能预览和物品类型的说明
-**And** 文档包含所有必要的截图
-**And** 面包屑导航显示：安装指南 > 功能指南 > 启用存档图鉴功能
-
-#### Scenario: 存档图鉴文档图片正确显示
-
-**Given** 用户正在查看存档图鉴功能文档
-**When** 页面加载完成
-**Then** 所有截图从 `/img/screenshots/enable_save_gallary/` 路径正确加载
-**And** 图片包括：安装依赖、启用功能、预览图鉴、物品对比、简单物品、复杂物品、Mod 物品
-**And** 无断链错误
-
----
-
-### Requirement: 分类配置文件
-
-文档系统 SHALL 使用 `_category_.json` 文件定义"功能指南"分类的显示行为。
-
-#### Scenario: 分类配置文件正确加载
-
-**Given** `docs/feature-guides/_category_.json` 文件存在
-**When** Docusaurus 构建文档站点
-**Then** 分类标签显示为"功能指南"
-**And** 分类在导航中显示为位置 2
-**And** 分类链接到自动生成的索引页
-**And** 索引页显示描述："SuperDucky 各项功能的启用和使用指南"
-
-### Requirement: 模组管理功能文档
-
-文档系统 SHALL 包含模组管理功能介绍指南，帮助用户了解 SuperDucky 的核心模组管理功能，包括浏览、管理、启用/禁用模组以及 Steam Workshop 集成。
-
-#### Scenario: 用户查找模组管理功能文档
-
-**Given** 用户访问 SuperDucky 文档网站
-**When** 用户展开"功能指南"分类并点击"模组管理功能介绍"
-**Then** 显示 `docs/feature-guides/mod-management.md` 文档页面
-**And** 文档包含模组列表视图的详细说明
-**And** 文档包含模组详情面板的功能说明
-**And** 文档包含 Steam Workshop 集成的使用方法
-**And** 文档包含模组操作（启用/禁用、更新、批量操作）的步骤
-**And** 面包屑导航显示：安装指南 > 功能指南 > 模组管理功能介绍
-
-#### Scenario: 模组管理文档包含完整章节
-
-**Given** 用户正在查看模组管理功能文档
-**When** 文档加载完成
-**Then** 显示"功能简介"章节介绍模组管理概览
-**And** 显示"模组列表视图"章节说明列表布局、筛选和排序功能
-**And** 显示"模组详情面板"章节说明元数据、依赖关系和文件列表
-**And** 显示"Steam Workshop 集成"章节说明浏览、订阅和更新机制
-**And** 显示"模组操作"章节说明启用/禁用、更新和批量操作
-**And** 可选显示"常见问题"章节
-
-#### Scenario: 模组管理文档支持中英双语
-
-**Given** 用户访问模组管理功能文档
-**When** 用户切换到英文语言
-**Then** 从 `i18n/en/docusaurus-plugin-content-docs/current/feature-guides/mod-management.md` 加载英文翻译
-**And** 所有章节标题和内容保持一致的翻译
-**And** 技术术语在两个语言版本中保持一致
-
-#### Scenario: 模组管理文档截图正确显示
-
-**Given** 用户正在查看模组管理功能文档
-**When** 文档包含截图引用
-**Then** 所有截图从 `/img/screenshots/mod-management/` 路径正确加载
-**And** 截图包括：模组列表视图、模组详情面板、Steam Workshop 界面、模组操作界面
-**And** 无断链错误
-
----
-
-### Requirement: 侧边栏导航包含模组管理指南
-
-文档系统 SHALL 在"功能指南"分类中包含模组管理功能指南，使用户能够通过侧边栏导航访问该文档。
-
-#### Scenario: 侧边栏显示模组管理指南
-
-**Given** 用户访问 SuperDucky 文档网站的任何文档页面
-**When** 用户查看左侧导航栏并展开"功能指南"分类
-**Then** 显示"模组管理功能介绍"作为子文档项
-**And** 该项位于"启用存档图鉴功能"之后
-**And** `sidebar_position` 设置为 3
-
-#### Scenario: 侧边栏配置正确更新
-
-**Given** `sidebars.ts` 文件包含模组管理指南配置
-**When** Docusaurus 构建文档站点
-**Then** 侧边栏正确渲染模组管理指南链接
-**And** 点击链接导航到 `/docs/feature-guides/mod-management` 页面
-**And** 面包屑导航正确显示层级结构
-
+提示块 SHALL 使用 Starlight 语法 `:::tip[标题]`、`:::caution[标题]`,类型名保持英文。

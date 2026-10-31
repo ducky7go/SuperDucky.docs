@@ -1,0 +1,38 @@
+---
+import { categoryTitles, screenshots, type Lang, type ScreenshotCategory } from '../data/screenshots';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const categories = Object.keys(categoryTitles) as ScreenshotCategory[];
+---
+
+{
+  categories.map((category) => (
+    <section>
+      <h2 id={category}>{categoryTitles[category][lang]}</h2>
+      <div class="screenshot-grid">
+        {screenshots
+          .filter((shot) => shot.category === category)
+          .map((shot) => (
+            <figure>
+              {/* Served as-is from public/ (already AVIF), so hagilight leaves the markup alone. */}
+              <img
+                src={`/screenshots/${shot.file}`}
+                alt={shot.title[lang]}
+                width={shot.width}
+                height={shot.height}
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                <strong>{shot.title[lang]}</strong> — {shot.description[lang]}
+              </figcaption>
+            </figure>
+          ))}
+      </div>
+    </section>
+  ))
+}
