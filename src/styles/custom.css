@@ -20,3 +20,463 @@
   font-size: var(--sl-text-sm);
   color: var(--sl-color-gray-2);
 }
+
+/* ------------------------------------------------------------------ */
+/* Home page (src/components/HomeLanding.astro)                        */
+/* Colors, type and shadows come from --sl-* tokens only, so dark/light */
+/* and the hagilight themes keep working.                              */
+/* ------------------------------------------------------------------ */
+
+/* The home page is a wide showcase, not a reading column. */
+html:root:has(.home) {
+  --home-pad: clamp(1.25rem, 4vw, 5rem);
+  --home-max: 144rem;
+  /* Side padding that keeps content inside --home-max and centred on very wide screens. */
+  --home-gutter: max(var(--home-pad), calc((100% - var(--home-max)) / 2 + var(--home-pad)));
+  --home-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Header and sidebar math read --sl-content-width and --sl-content-pad-x, so those tokens stay
+   untouched; only the content panel itself is released from the reading column. */
+html:root:has(.home) .content-panel {
+  padding-inline: 0;
+}
+
+html:root:has(.home) .sl-container {
+  max-width: none;
+}
+
+/* The home page has its own h1; hide the generated title block and its width switch. */
+html:root:has(.home) main > .content-panel:first-child {
+  display: none;
+}
+
+html:root:has(.home) .hagilight-ai-disclosure {
+  margin: 1.5rem var(--home-gutter) 0;
+}
+
+.home {
+  color: var(--sl-color-text);
+}
+
+.home ::selection {
+  background: var(--sl-color-accent-low);
+  color: var(--sl-color-white);
+}
+
+.home h1,
+.home h2 {
+  color: var(--sl-color-white);
+  text-wrap: balance;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.home p {
+  margin: 0;
+}
+
+/* Break Chinese at phrase boundaries where supported (Chrome 119+). */
+.home {
+  word-break: auto-phrase;
+}
+
+.home a:focus-visible {
+  outline: 2px solid var(--sl-color-accent);
+  outline-offset: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+/* Buttons */
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  min-height: 3rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999rem;
+  border: 1px solid transparent;
+  font-size: var(--sl-text-base);
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.home-btn-primary {
+  background: var(--sl-color-text-accent);
+  color: var(--sl-color-black);
+}
+
+.home-btn-primary:hover {
+  background: var(--sl-color-white);
+  color: var(--sl-color-black);
+}
+
+.home-btn-secondary {
+  border-color: var(--sl-color-gray-3);
+  color: var(--sl-color-white);
+}
+
+.home-btn-secondary:hover {
+  border-color: var(--sl-color-white);
+}
+
+/* Hero */
+.home-hero {
+  display: grid;
+  gap: clamp(2rem, 4vw, 5rem);
+  align-items: center;
+  padding: clamp(2rem, 5vw, 5rem) var(--home-gutter) clamp(3rem, 6vw, 7rem);
+}
+
+@media (min-width: 64rem) {
+  .home-hero {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 8fr);
+    min-height: calc(100svh - var(--sl-nav-height) - 7rem);
+  }
+}
+
+@media (min-width: 90rem) {
+  .home-hero {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 9fr);
+  }
+}
+
+.home-hero-copy {
+  display: grid;
+  gap: 1.5rem;
+  justify-items: start;
+}
+
+.home-hero h1 {
+  font-size: clamp(2rem, 0.9rem + 3.6vw, 5rem);
+  word-break: keep-all;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.home-lead {
+  max-width: 34rem;
+  font-size: clamp(1.0625rem, 0.9rem + 0.45vw, 1.375rem);
+  line-height: 1.6;
+  color: var(--sl-color-gray-2);
+}
+
+.home-hero .home-actions {
+  margin-top: 0.5rem;
+}
+
+.home-note {
+  max-width: 34rem;
+  font-size: var(--sl-text-sm);
+  line-height: 1.6;
+  color: var(--sl-color-gray-3);
+}
+
+.home-note a,
+.home-step-link {
+  color: var(--sl-color-text-accent);
+  text-underline-offset: 0.2em;
+}
+
+.home-hero-shot,
+.home-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  border: 1px solid var(--sl-color-gray-5);
+}
+
+/* Tour: default (stacked) layout. Used on narrow screens, with reduced motion,
+   and where scroll-driven animations are missing (Firefox today). */
+.home-tour-wrap {
+  background: var(--sl-color-bg-sidebar);
+  border-block: 1px solid var(--sl-color-hairline);
+}
+
+.home-tour {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: clamp(3rem, 6vw, 6rem) var(--home-gutter);
+}
+
+.home-tour-steps,
+.home-tour-stage,
+.home-tour-frames {
+  display: contents;
+}
+
+.home-step {
+  grid-column: 1;
+  grid-row: calc(var(--i) * 2 + 1);
+  display: grid;
+  gap: 1rem;
+  align-content: center;
+  justify-items: start;
+  margin-top: 2rem;
+}
+
+.home-frame {
+  grid-column: 1;
+  grid-row: calc(var(--i) * 2 + 2);
+  margin: 0;
+}
+
+.home-step h2 {
+  font-size: clamp(1.625rem, 1rem + 1.4vw, 2.5rem);
+}
+
+.home-step p {
+  max-width: 28rem;
+  font-size: var(--sl-text-lg);
+  line-height: 1.65;
+  color: var(--sl-color-gray-2);
+}
+
+.home-step-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.home-step-link svg,
+.home-doc-title + .home-doc-desc + svg {
+  flex: none;
+}
+
+@media (min-width: 62rem) {
+  .home-tour {
+    grid-template-columns: minmax(16rem, 24rem) minmax(0, 1fr);
+    column-gap: clamp(2rem, 5vw, 6rem);
+    row-gap: 4rem;
+  }
+
+  .home-step {
+    grid-row: calc(var(--i) + 1);
+    margin-top: 0;
+  }
+
+  .home-frame {
+    grid-column: 2;
+    grid-row: calc(var(--i) + 1);
+  }
+}
+
+/* Tour: pinned stage, driven by scroll position. One enhancement, fully static without it. */
+@media (min-width: 62rem) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .home-tour {
+      align-items: start;
+      row-gap: 0;
+      padding-block: 0;
+      timeline-scope: --t0, --t1, --t2, --t3, --t4;
+    }
+
+    .home-tour-steps {
+      display: block;
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .home-tour-stage {
+      grid-column: 2;
+      grid-row: 1;
+      position: sticky;
+      top: var(--sl-nav-height);
+      display: grid;
+      place-items: center;
+      height: calc(100svh - var(--sl-nav-height));
+    }
+
+    .home-tour-frames {
+      display: grid;
+      width: min(100%, calc((100svh - var(--sl-nav-height) - 3rem) * 1.6162));
+    }
+
+    .home-step {
+      min-height: 85svh;
+      margin-top: 0;
+      animation: home-focus linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+
+    .home-frame {
+      grid-area: 1 / 1;
+      aspect-ratio: 1600 / 990;
+      overflow: hidden;
+      border-radius: 0.5rem;
+    }
+
+    .home-frame img {
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .home-step:nth-child(1) { view-timeline: --t0 block; }
+    .home-step:nth-child(2) { view-timeline: --t1 block; }
+    .home-step:nth-child(3) { view-timeline: --t2 block; }
+    .home-step:nth-child(4) { view-timeline: --t3 block; }
+    .home-step:nth-child(5) { view-timeline: --t4 block; }
+
+    /* Frame n wipes in over frame n-1 as chapter n scrolls into the middle of the screen. */
+    .home-frame:nth-child(n + 2),
+    .home-frame:nth-child(n + 2) img {
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+      animation-range: cover 6% cover 34%;
+    }
+
+    .home-frame:nth-child(n + 2) { animation-name: home-wipe; }
+    .home-frame:nth-child(n + 2) img { animation-name: home-settle; }
+
+    .home-frame:nth-child(2),
+    .home-frame:nth-child(2) img { animation-timeline: --t1; }
+    .home-frame:nth-child(3),
+    .home-frame:nth-child(3) img { animation-timeline: --t2; }
+    .home-frame:nth-child(4),
+    .home-frame:nth-child(4) img { animation-timeline: --t3; }
+    .home-frame:nth-child(5),
+    .home-frame:nth-child(5) img { animation-timeline: --t4; }
+  }
+}
+
+@keyframes home-focus {
+  0% { opacity: 0.45; }
+  35%, 65% { opacity: 1; }
+  100% { opacity: 0.45; }
+}
+
+@keyframes home-wipe {
+  from { clip-path: inset(100% 0 0 0 round 0.5rem); }
+  to { clip-path: inset(0 0 0 0 round 0.5rem); }
+}
+
+@keyframes home-settle {
+  from { transform: translateY(5%) scale(1.07); }
+  to { transform: none; }
+}
+
+/* Finish: download + docs */
+.home-finish {
+  display: grid;
+  gap: clamp(3rem, 5vw, 6rem);
+  padding: clamp(3rem, 6vw, 7rem) var(--home-gutter);
+}
+
+@media (min-width: 64rem) {
+  .home-finish {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    align-items: start;
+  }
+}
+
+.home-download,
+.home-docs {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+}
+
+.home-docs {
+  justify-items: stretch;
+}
+
+.home-finish h2 {
+  font-size: clamp(1.75rem, 1.1rem + 1.6vw, 2.75rem);
+}
+
+.home-download > p,
+.home-docs > p {
+  max-width: 34rem;
+  font-size: var(--sl-text-lg);
+  line-height: 1.65;
+  color: var(--sl-color-gray-2);
+}
+
+.home-reqs {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 0.5rem 1.5rem;
+  margin: 0.75rem 0 0;
+  font-size: var(--sl-text-sm);
+}
+
+.home-reqs dt {
+  color: var(--sl-color-gray-3);
+}
+
+.home-reqs dd {
+  margin: 0;
+  color: var(--sl-color-text);
+}
+
+.home-docs ul {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  border-bottom: 1px solid var(--sl-color-hairline);
+}
+
+.home-docs li {
+  border-top: 1px solid var(--sl-color-hairline);
+  margin: 0;
+}
+
+.home-docs li a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: 'title arrow' 'desc arrow';
+  column-gap: 1rem;
+  align-items: center;
+  padding: 1.125rem 0;
+  text-decoration: none;
+  color: var(--sl-color-white);
+}
+
+.home-doc-title {
+  grid-area: title;
+  font-size: var(--sl-text-lg);
+  font-weight: 600;
+}
+
+.home-doc-desc {
+  grid-area: desc;
+  font-size: var(--sl-text-sm);
+  color: var(--sl-color-gray-2);
+}
+
+.home-docs li svg {
+  grid-area: arrow;
+  color: var(--sl-color-gray-3);
+}
+
+.home-docs li a:hover .home-doc-title {
+  color: var(--sl-color-text-accent);
+}
+
+.home-docs li a:hover svg {
+  color: var(--sl-color-text-accent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-btn,
+  .home-docs li svg,
+  .home-doc-title {
+    transition: background-color 0.2s var(--home-ease), border-color 0.2s var(--home-ease), color 0.2s var(--home-ease), transform 0.3s var(--home-ease);
+  }
+
+  .home-docs li a:hover svg {
+    transform: translateX(0.25rem);
+  }
+}

@@ -1,0 +1,125 @@
+---
+import { copy, docLinks, heroShot, RELEASES_URL, STORE_URL, tour } from '../data/home';
+import type { Lang } from '../data/screenshots';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+// Chinese is the root locale; English lives under /en/. Doc links are root-relative to that.
+const base = lang === 'en' ? '/en/' : '/';
+---
+
+<div class="home not-content">
+  <section class="home-hero">
+    <div class="home-hero-copy">
+      <h1>{copy.title[lang]}</h1>
+      <p class="home-lead">{copy.lead[lang]}</p>
+      <div class="home-actions">
+        <a class="home-btn home-btn-primary" href={STORE_URL} rel="noopener">
+          <svg aria-hidden="true" viewBox="0 0 16 16" width="18" height="18" fill="currentColor"><path d="M1 2.3 6.8 1.5v5.2H1V2.3Zm6.6-.9L15 .3v6.4H7.6V1.4ZM1 7.4h5.8v5.2L1 11.7V7.4Zm6.6 0H15v6.4l-7.4-1V7.4Z" /></svg>
+          {copy.store[lang]}
+        </a>
+        <a class="home-btn home-btn-secondary" href={base + 'installation/'}>
+          {copy.docs[lang]}
+          <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+        </a>
+      </div>
+      <p class="home-note">
+        {copy.heroNote[lang]}
+        <a href={RELEASES_URL} rel="noopener">GitHub Releases</a>
+      </p>
+    </div>
+    <img
+      class="home-hero-shot"
+      src={heroShot.src}
+      alt={heroShot.alt[lang]}
+      width={heroShot.width}
+      height={heroShot.height}
+      fetchpriority="high"
+      decoding="async"
+    />
+  </section>
+
+  <section class="home-tour-wrap" aria-label={copy.tourLabel[lang]}>
+    <div class="home-tour">
+      <div class="home-tour-steps">
+        {
+          tour.map((step, i) => (
+            <article class="home-step" style={`--i:${i}`}>
+              <h2>{step.title[lang]}</h2>
+              <p>{step.body[lang]}</p>
+              <a class="home-step-link" href={base + step.href}>
+                {step.link[lang]}
+                <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+              </a>
+            </article>
+          ))
+        }
+      </div>
+      <div class="home-tour-stage">
+        <div class="home-tour-frames">
+          {
+            tour.map((step, i) => (
+              <figure class="home-frame" style={`--i:${i}`}>
+                <img
+                  src={step.shot.src}
+                  alt={step.shot.alt[lang]}
+                  width={step.shot.width}
+                  height={step.shot.height}
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
+              </figure>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-finish">
+    <div class="home-download">
+      <h2>{copy.downloadTitle[lang]}</h2>
+      <p>{copy.downloadBody[lang]}</p>
+      <div class="home-actions">
+        <a class="home-btn home-btn-primary" href={STORE_URL} rel="noopener">
+          <svg aria-hidden="true" viewBox="0 0 16 16" width="18" height="18" fill="currentColor"><path d="M1 2.3 6.8 1.5v5.2H1V2.3Zm6.6-.9L15 .3v6.4H7.6V1.4ZM1 7.4h5.8v5.2L1 11.7V7.4Zm6.6 0H15v6.4l-7.4-1V7.4Z" /></svg>
+          {copy.store[lang]}
+        </a>
+        <a class="home-btn home-btn-secondary" href={RELEASES_URL} rel="noopener">
+          {copy.releases[lang]}
+          <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3H3v10h10v-3M9 3h4v4M13 3 7 9" /></svg>
+        </a>
+      </div>
+      <dl class="home-reqs">
+        {
+          copy.requirements.map((r) => (
+            <>
+              <dt>{r.os}</dt>
+              <dd>{r.req[lang]}</dd>
+            </>
+          ))
+        }
+      </dl>
+    </div>
+    <div class="home-docs">
+      <h2>{copy.docsTitle[lang]}</h2>
+      <p>{copy.docsBody[lang]}</p>
+      <ul>
+        {
+          docLinks.map((d) => (
+            <li>
+              <a href={base + d.href}>
+                <span class="home-doc-title">{d.title[lang]}</span>
+                <span class="home-doc-desc">{d.description[lang]}</span>
+                <svg aria-hidden="true" viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</div>

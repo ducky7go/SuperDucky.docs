@@ -2,49 +2,8 @@
 title: Mod manager for Escape from Duckov
 description: A mod manager for Escape from Duckov. Manage local, Steam Workshop and NuGet mods, switch mod suites in one click, and launch the game.
 template: splash
-hero:
-  title: SuperDucky
-  tagline: A mod manager for Escape from Duckov players. Manage local, Steam Workshop and NuGet mods in one place.
-  image:
-    alt: Screenshot of the SuperDucky welcome page
-    html: '<img src="/screenshots/Screenshot_20260102_211621.avif" alt="Screenshot of the SuperDucky welcome page" width="1600" height="990" decoding="async">'
-  actions:
-    - text: Get started
-      link: installation/
-      icon: right-arrow
-    - text: Download
-      link: https://github.com/ducky7go/SuperDucky/releases
-      icon: external
-      variant: minimal
 ---
 
-import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import HomeLanding from '../../../components/HomeLanding.astro';
 
-## Features
-
-<CardGrid>
-  <Card title="Steam Workshop" icon="rocket">
-    Browse, search and subscribe to Workshop mods inside the app, without switching windows.
-  </Card>
-  <Card title="Mod suites" icon="setting">
-    Save mods as separate "mod suites" for each play style and switch with one click. You can also import an existing Better Mod Loader (BML) setup.
-  </Card>
-  <Card title="Launch the game" icon="right-caret">
-    Start Escape from Duckov straight from SuperDucky, without switching to another app.
-  </Card>
-  <Card title="One place for everything" icon="puzzle">
-    Local mods, Workshop subscriptions and NuGet mods share one list, with groups, drag-and-drop ordering, history restore and health checks.
-  </Card>
-  <Card title="NuGet market" icon="download">
-    Once enabled, browse and install mods published on NuGet. It is also where SuperDucky.Connector, which the save gallery needs, comes from.
-  </Card>
-  <Card title="Save gallery" icon="open-book">
-    Read your game save, show collected items by category, and compare the attributes of up to 6 items.
-  </Card>
-</CardGrid>
-
-## Start here
-
-<LinkCard title="Installation" description="Download and install SuperDucky on Windows, macOS or Linux." href="installation/" />
-<LinkCard title="Mod management" description="Groups, ordering, filters and health checks." href="feature-guides/mod-management/" />
-<LinkCard title="Screenshots" description="See what SuperDucky looks like." href="screenshots/" />
+<HomeLanding lang="en" />
