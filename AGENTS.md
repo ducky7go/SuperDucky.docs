@@ -1,25 +1,11 @@
-<!-- OPENSPEC:START -->
-# OpenSpec Instructions
+## OpenSpec
 
-These instructions are for AI assistants working in this project.
+This repo has no `openspec/` directory. OpenSpec for all `ducky7go-mono` sub-repos lives in the parent repo: `../../openspec/` (workflow rules `../../openspec/AGENTS.md`, specs `../../openspec/specs/`, changes `../../openspec/changes/`). This repo's former project context is `../../openspec/projects/SuperDucky.docs/project.md`.
 
-Always open `@/openspec/AGENTS.md` when the request:
-- Mentions planning or proposals (words like proposal, spec, change, plan)
-- Introduces new capabilities, breaking changes, architecture shifts, or big performance/security work
-- Sounds ambiguous and you need the authoritative spec before coding
-
-Use `@/openspec/AGENTS.md` to learn:
-- How to create and apply change proposals
-- Spec format and conventions
-- Project structure and guidelines
-
-Keep this managed block so 'openspec update' can refresh the instructions.
-
-<!-- OPENSPEC:END -->
 
 # SuperDucky.docs
 
-See `openspec/AGENTS.md` for the spec-driven workflow and `openspec/project.md` for project context.
+See `../../openspec/AGENTS.md` for the spec-driven workflow and `../../openspec/projects/SuperDucky.docs/project.md` for project context.
 
 ## Project overview
 
@@ -37,7 +23,7 @@ User documentation for the SuperDucky mod manager, built with Astro 7, Starlight
 - `scripts/warm-deployment-domains.mjs` post-publication domain warmup (test: `tests/warm-deployment-domains.test.mjs`)
 - `scripts/add-screenshot.mjs` converts a screenshot to AVIF (`pnpm run screenshot`)
 - `astro.config.mjs` Starlight, hagilight and redirect configuration; `src/content.config.ts` collection with the hagilight frontmatter schema
-- `openspec/specs/` `deployment`, `docs`, `landing-page`, `hagilight-integration`
+- `../../openspec/specs/` `deployment`, `docs`, `landing-page`, `hagilight-integration`
 
 ## Build / test / run
 
@@ -63,7 +49,7 @@ Use pnpm (`packageManager` is pinned; `pnpm-lock.yaml` is the only lockfile). No
 
 ## hagilight
 
-The site lives on `ducky.hagicode.com`, so `@hagicode/hagilight-starlight` runs with **all its defaults**: its footer (including the HagiCode filing numbers), Google Analytics, 51LA, PostHog and the consent popup, the HagiCode promotion card and banner, the default logo and favicon, RSS, SEO and site metadata. Do not turn these off or replace the footer; `hagilight()` only receives `links.siteId`, `links.siteUrl` and `aiDisclosures`. Read `openspec/specs/hagilight-integration/spec.md` first. If the site ever leaves `hagicode.com`, the filing numbers, analytics accounts and branding no longer apply and must be reviewed.
+The site lives on `ducky.hagicode.com`, so `@hagicode/hagilight-starlight` runs with **all its defaults**: its footer (including the HagiCode filing numbers), Google Analytics, 51LA, PostHog and the consent popup, the HagiCode promotion card and banner, the default logo and favicon, RSS, SEO and site metadata. Do not turn these off or replace the footer; `hagilight()` only receives `links.siteId`, `links.siteUrl` and `aiDisclosures`. Read `../../openspec/specs/hagilight-integration/spec.md` first. If the site ever leaves `hagicode.com`, the filing numbers, analytics accounts and branding no longer apply and must be reviewed.
 
 - hagilight wraps relative-path body images in `<picture>` with fixed AVIF and WebP sources, and that format list has no option. That is why screenshots live in `public/`, which hagilight leaves alone. Keep it that way to ship AVIF only. hagilight's own assets (default logo, footer avatar, promotion artwork) are not under this repo's control and may be PNG, WebP, JPEG or SVG.
 - The English locale key is `en` (not `en-US`), because Starlight lowercases content folder names. `lang` stays `en-US`.
