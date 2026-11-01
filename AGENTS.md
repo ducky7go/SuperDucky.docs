@@ -5,8 +5,6 @@ This repo has no `openspec/` directory. OpenSpec for all `ducky7go-mono` sub-rep
 
 # SuperDucky.docs
 
-See `../../openspec/AGENTS.md` for the spec-driven workflow and `../../openspec/projects/SuperDucky.docs/project.md` for project context.
-
 ## Project overview
 
 User documentation for the SuperDucky mod manager, built with Astro 7, Starlight and `@hagicode/hagilight-starlight`. Served at `https://ducky.hagicode.com/` (`site` in `astro.config.mjs`; there is no `base`). The built site is published to the `gh-pages` branch by GitHub Actions; GitHub Pages itself is not configured. The site was migrated from Docusaurus; the Chinese pages are the source language and the English pages are AI translations.
